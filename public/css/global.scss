@@ -1,0 +1,21 @@
+html,
+body {
+    height: auto;
+    min-height: 100%;
+}
+body {
+    background: #070503;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 1);
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 8px;
+        background: #f3b6d5;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+        background: #f3b6d5;
+    }
+}

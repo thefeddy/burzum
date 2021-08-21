@@ -1,0 +1,32 @@
+#home {
+    height: 100vh;
+    main {
+        display: grid;
+
+        height: 100%;
+
+        place-content: center;
+
+        h1 {
+            font-family: 'Letterboard';
+            font-size: 120px;
+            line-height: 1;
+
+            margin: auto;
+
+            text-align: center;
+            text-transform: uppercase;
+
+            color: #fff;
+        }
+        span {
+            font-family: 'Letterboard';
+            font-size: 20px;
+
+            text-align: center;
+            letter-spacing: 2px;
+
+            color: #af4a1f;
+        }
+    }
+}
