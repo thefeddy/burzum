@@ -2,11 +2,16 @@ import { Controller, Get, Render, Res, HttpService } from '@nestjs/common';
 
 import { Response } from 'express';
 
+import { BarService } from 'src/bar/bar.service';
+
 @Controller('')
 export class BurzumController {
-    constructor(private http: HttpService) { }
+    constructor(private barService: BarService, private http: HttpService) { }
 
     @Get('/')
     @Render('burzum/index')
-    index(@Res() res: Response) { }
+    async index(@Res() res: Response) {
+
+
+    }
 }

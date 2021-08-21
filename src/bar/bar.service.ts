@@ -9,17 +9,17 @@ import { BarDTO } from './bar.dto';
 export class BarService {
     constructor(
         @InjectRepository(Bar)
-        private imagesRepository: Repository<Bar>,
+        private barRepository: Repository<Bar>,
         private http: HttpService
     ) { }
 
     async findAll(): Promise<Bar[]> {
-        return await this.imagesRepository.find();
+        return await this.barRepository.find();
     }
 
 
-    async add(image: Bar): Promise<Bar> {
-        const { id } = image;
+    async add(item: Bar): Promise<Bar> {
+        const { id } = item;
         return;
         //return await this.imagesRepository.save({ ...image, statusCode: HttpStatus.ACCEPTED });
     }

@@ -1,0 +1,49 @@
+{{#extend "body_id"}}
+id="bar"
+{{/extend}}
+{{#extend "body"}}
+
+<div class="container">
+    <header>
+        <h1>The Bar</h1>
+        <span>Some Fancy Wording Here </span>
+    </header>
+    <section id="bartender">
+        <div class="photo">
+            <div class="overlay">
+                <h4>Jibs</h4>
+                <span>He/Him - Straight</span>
+                <p>Jibs is one chill dude. Always laid back looking to have good times with his patrons. When his not
+                    getting you a drink or snack he will be livening up the bar about as much as the dance floor with
+                    his random quips or going full coyote ugly with various patrons on the bar not to be outdone by the
+                    dance floor. He likes good conversation and can be quite the charmer when he wants to be.</p>
+            </div>
+            <img src="img/staff-jibs.png" alt="Staff Name" />
+        </div>
+    </section>
+    <section id="the-menu">
+        <div class="menu drinks">
+            <h2>Drinks</h2>
+            {{#each drinks}}
+            <div class="item">
+                <h3>{{ name }} <span>{{ price }}<em>gil</em></h3>
+                <div class="items">{{ items }}</div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="menu food">
+            <h2>Food</h2>
+            {{#each food}}
+            <div class="item">
+                <h3>{{ name }} <span>{{ price }}<em>gil</em></h3>
+                <div class="items">{{ items }}</div>
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</div>
+{{/extend}}
+
+{{#extend "js"}}
+{{/extend}}

@@ -11,4 +11,4 @@ import { BarService } from './bar.service';
     controllers: [BarController],
 })
 
-export class StaffModule { }
+export class BarModule { }

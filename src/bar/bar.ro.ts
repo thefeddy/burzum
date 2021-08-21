@@ -3,4 +3,6 @@ export class BarRO {
     name: string;
     items: string;
     active: string;
+    price: number;
+    type: string;
 }

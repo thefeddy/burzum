@@ -3,4 +3,6 @@ export class BarDTO {
     readonly name: string;
     readonly items: string;
     readonly active: string;
+    readonly price: number;
+    readonly type: string;
 }

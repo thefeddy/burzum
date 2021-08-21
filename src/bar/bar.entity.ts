@@ -35,9 +35,25 @@ export class Bar {
     })
     active: string;
 
+    @Column({
+        name: 'price',
+        type: 'int4',
+        nullable: true
+    })
+    price: number;
+
+
+    @Column({
+        name: 'type',
+        type: 'varchar',
+        nullable: true,
+        length: 255
+    })
+    type: string;
+
     toResponseObject(): BarRO {
-        const { id, name, items, active } = this;
-        const responseObject: BarRO = { id, name, items, active };
+        const { id, name, items, active, price, type } = this;
+        const responseObject: BarRO = { id, name, items, active, price, type };
 
         return responseObject;
     }

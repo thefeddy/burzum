@@ -40,6 +40,10 @@ async function bootstrap() {
                 return options.fn(this);
             }
             return options.inverse(this);
+        },
+        ifEquals: (v1, v2, options) => {
+            console.log(options);
+            return (v1 == v2) ? options.fn(this) : options.inverse(this);
         }
 
     };
