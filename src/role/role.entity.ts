@@ -2,10 +2,11 @@ import {
     Entity,
     Column,
     PrimaryGeneratedColumn,
+    OneToMany
 } from 'typeorm';
 
 import { RoleRO } from './role.ro';
-
+import { Staff } from '../staff/staff.entity';
 @Entity()
 export class Role {
     @PrimaryGeneratedColumn()
@@ -27,6 +28,7 @@ export class Role {
         length: 255
     })
     active: string;
+
 
     toResponseObject(): RoleRO {
         const { id, name, active } = this;

@@ -3,7 +3,8 @@ import {
     Column,
     PrimaryGeneratedColumn,
     OneToOne,
-    JoinColumn
+    JoinColumn,
+    ManyToOne
 } from 'typeorm';
 
 import { RoomsRO } from './rooms.ro';
@@ -45,7 +46,7 @@ export class Rooms {
     })
     active: string;
 
-    @OneToOne(() => Room)
+    @ManyToOne(() => Room)
     @JoinColumn()
     type: number;
 

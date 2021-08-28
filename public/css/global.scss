@@ -13,10 +13,10 @@ body {
     }
     &::-webkit-scrollbar-thumb {
         border-radius: 8px;
-        background: #f3b6d5;
+        background: #af4a1f;
     }
     &::-webkit-scrollbar-thumb:hover {
-        background: #f3b6d5;
+        background: #af4a1f;
     }
 }
 main {
@@ -31,6 +31,18 @@ main {
             letter-spacing: 2px;
 
             color: #af4a1f;
+        }
+        time {
+            font-family: 'Raleway';
+            font-size: 22px;
+
+            margin-top: 15px;
+
+            text-align: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            color: #917347;
         }
     }
     h1 {

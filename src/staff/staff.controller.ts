@@ -6,9 +6,15 @@ import { StaffService } from './staff.service';
 
 @Controller('')
 export class StaffController {
-    constructor(private http: HttpService) { }
+    constructor(private http: HttpService, private staffService: StaffService) { }
 
     @Get('/')
     @Render('staff/index')
-    index(@Res() res: Response) { }
+    async index(@Res() res: Response) {
+        const staff = await this.staffService.findAll();
+
+        console.log(staff);
+
+        return { staff };
+    }
 }

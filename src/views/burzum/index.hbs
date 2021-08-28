@@ -5,27 +5,8 @@ id="home"
 <header>
     <h1>Burzum</h1>
     <span>An Excalibur Night Club | Lavender Beds | W22 | P3 </span>
+    <time>Thursday - Saturday : 1 AM to 4 AM PST</time>
 </header>
-
-<div class="menu drinks">
-    <h2>Drinks</h2>
-    {{#each drinks}}
-    <div class="item">
-        <h3>{{ name }} <span>{{ price }}<em>gil</em></h3>
-        <div class="items">{{ items }}</div>
-    </div>
-    {{/each}}
-</div>
-
-<div class="menu food">
-    <h2>Food</h2>
-    {{#each food}}
-    <div class="item">
-        <h3>{{ name }} <span>{{ price }}<em>gil</em></h3>
-        <div class="items">{{ items }}</div>
-    </div>
-    {{/each}}
-</div>
 {{/extend}}
 
 {{#extend "js"}}

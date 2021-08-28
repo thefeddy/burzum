@@ -1,8 +1,27 @@
+{{#extend "title"}}
+Staff |
+{{/extend}}
+
 {{#extend "body_id"}}
-id="home"
+id="staff"
 {{/extend}}
 {{#extend "body"}}
+<header>
+    <h1>The Staff</h1>
+    <span>meet our amazing staff</span>
+</header>
 
+<section id="the-staff">
+
+    {{#each staff}}
+    <div class="staff" style="background-image:url({{ photo }});">
+        <div class="overlay"></div>
+        <div class="name">{{ name }}</div>
+        <div class="role">{{ role }}</div>
+    </div>
+    {{/each}}
+
+</section>
 {{/extend}}
 
 {{#extend "js"}}

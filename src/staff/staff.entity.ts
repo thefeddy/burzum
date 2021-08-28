@@ -3,11 +3,13 @@ import {
     Column,
     PrimaryGeneratedColumn,
     OneToOne,
-    JoinColumn
+    JoinColumn,
+    ManyToOne
 } from 'typeorm';
 
 import { StaffRO } from './staff.ro';
-import { Role } from '../role/role.entity';
+
+import { StaffRoleEnum } from '../enums/role.enums';
 
 @Entity()
 export class Staff {
@@ -18,15 +20,18 @@ export class Staff {
         name: 'username',
         type: 'varchar',
         nullable: true,
-        length: 255
+        length: 255,
+        select: false
     })
     username: string;
+
 
     @Column({
         name: 'password',
         type: 'varchar',
         nullable: true,
-        length: 255
+        length: 255,
+        select: false
     })
     password: string;
 
@@ -50,15 +55,13 @@ export class Staff {
 
     @Column({
         name: 'joined',
-        type: 'varchar',
-        nullable: true,
-        length: 255
+        type: "timestamp",
+        default: () => "CURRENT_TIMESTAMP"
     })
     joined: Date;
 
-    @OneToOne(() => Role)
-    @JoinColumn()
-    role: number;
+    @Column({ nullable: true })
+    role: StaffRoleEnum;
 
     @Column({
         name: 'active',
@@ -76,9 +79,16 @@ export class Staff {
     })
     stream: string;
 
+    @Column({
+        name: 'description',
+        type: 'varchar',
+        nullable: true
+    })
+    description: string;
+
     toResponseObject(): StaffRO {
-        const { id, username, password, name, role, photo, joined, active, stream } = this;
-        const responseObject: StaffRO = { id, username, password, name, role, photo, joined, active, stream };
+        const { id, username, password, name, role, photo, joined, active, stream, description } = this;
+        const responseObject: StaffRO = { id, username, password, name, role, photo, joined, active, stream, description };
 
         return responseObject;
     }

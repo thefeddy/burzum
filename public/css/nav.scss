@@ -1,18 +1,31 @@
 nav {
     position: sticky;
+    z-index: 9999;
     top: 0;
 
     display: flex;
     flex-direction: row;
 
-    padding: 20px;
+    height: 50px;
+    padding: 0 20px;
+
+    border-bottom: 1px solid #af4a1f;
+    background: rgba(0, 0, 0, 0.8);
+
+    align-items: center;
+
     ul {
+        display: flex;
+
         margin: 0;
         margin-left: auto;
         padding: 0;
 
         list-style: none;
+
+
         li {
+            margin-left: 25px;
             a {
                 font-family: 'Letterboard';
                 font-size: 22px;

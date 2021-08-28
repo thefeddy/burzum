@@ -12,6 +12,8 @@ import { DiscordService } from './discord/discord.service';
 import { DiscordModule } from './discord/discord.module';
 import { BurzumModule } from './burzum/burzum.module';
 import { BarModule } from './bar/bar.module';
+import { StaffModule } from './staff/staff.module';
+
 /* Entities */
 import { Staff } from './staff/staff.entity';
 import { Role } from './role/role.entity';
@@ -34,6 +36,10 @@ const routes: Routes = [
     {
         path: '/bar',
         module: BarModule,
+    },
+    {
+        path: '/staff',
+        module: StaffModule,
     },
 ];
 
@@ -58,6 +64,7 @@ const routes: Routes = [
         RouterModule.forRoutes(routes),
         BurzumModule,
         BarModule,
+        StaffModule,
         HttpModule,
         DiscordModule
     ],

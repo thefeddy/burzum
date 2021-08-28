@@ -9,16 +9,16 @@ import { StaffDTO } from './staff.dto';
 export class StaffService {
     constructor(
         @InjectRepository(Staff)
-        private imagesRepository: Repository<Staff>,
+        private staffRepository: Repository<Staff>,
         private http: HttpService
     ) { }
 
     async findAll(): Promise<Staff[]> {
-        return await this.imagesRepository.find();
+        return await this.staffRepository.find();
     }
 
     async findByDate(date: Date): Promise<Staff> {
-        return this.imagesRepository.findOne({
+        return this.staffRepository.findOne({
             where: { date },
         });
     }

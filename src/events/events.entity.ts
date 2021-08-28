@@ -5,7 +5,8 @@ import {
     OneToOne,
     JoinColumn,
     JoinTable,
-    OneToMany
+    OneToMany,
+    ManyToOne
 } from 'typeorm';
 
 import { EventRO } from './events.ro';
@@ -45,19 +46,19 @@ export class Events {
     @OneToMany(() => Staff, staff => staff.id)
     public staff: Staff[];
 
-    @OneToOne(() => Staff)
+    @ManyToOne(() => Staff)
     @JoinColumn()
     dj: number;
 
-    @OneToOne(() => Contests)
+    @ManyToOne(() => Contests)
     @JoinColumn()
     contest: number;
 
-    @OneToOne(() => Staff)
+    @ManyToOne(() => Staff)
     @JoinColumn()
     bartender: number;
 
-    @OneToOne(() => Bar)
+    @ManyToOne(() => Bar)
     @JoinColumn()
     bar_menu: number;
 
