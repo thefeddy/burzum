@@ -1,0 +1,48 @@
+#admin {
+    &.staff {
+        #staff {
+            thead {
+                border-radius: 5px;
+                background-color: rgba(249,250,251, 1);
+                th {
+                    font-family: raleway;
+                    font-size: 14px;
+
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                }
+            }
+            tr {
+                &:nth-child(even) {
+                    background-color: rgba(249,250,251, 1);
+                }
+                &:nth-child(odd) {
+                    background-color: rgba(249,250,251, 0.96);
+                }
+            }
+        }
+        .dataTable-dropdown {
+            label {
+                color: #fff;
+            }
+        }
+        .dataTable-bottom {
+            color: #fff;
+            .dataTable-info {
+                color: #fff;
+            }
+            .dataTable-pagination {
+                li {
+                    &.active {
+                        a {
+                            color: #000;
+                        }
+                    }
+                }
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}

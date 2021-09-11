@@ -4,8 +4,11 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
 
 import * as exphbs from 'express-handlebars';
+import * as passport from 'passport';
+import * as session from 'express-session';
 
 import { AppModule } from './app.module';
+
 
 const PUBLIC_PATH = join(__dirname, '..', 'public');
 const VIEWS_PATH = join(__dirname, '..', 'src/views');
@@ -28,22 +31,21 @@ async function bootstrap() {
         },
         block: function (name) {
             var val = (blocks[name] || []).join('\n');
-
             // clear the block
             blocks[name] = [];
             return val;
         },
         equals: (v1, v2, options) => {
-            console.log(v1.length, v2)
-            console.log(v1.length > v2)
             if (v1.length === v2) {
                 return options.fn(this);
             }
             return options.inverse(this);
         },
         ifEquals: (v1, v2, options) => {
-            console.log(options);
             return (v1 == v2) ? options.fn(this) : options.inverse(this);
+        },
+        select: (selected, options) => {
+            return options.fn(this).replace(new RegExp(`value="${selected}"`), '$& selected="selected"');
         }
 
     };
@@ -58,6 +60,17 @@ async function bootstrap() {
 
     app.engine('hbs', hbs.engine);
     app.setViewEngine('hbs');
+
+    app.use(
+        session({
+            secret: 'LlbfMTe#Sf*L6',
+            resave: false,
+            saveUninitialized: false,
+            cookie: { maxAge: 36000 }
+        })
+    );
+    app.use(passport.initialize());
+    app.use(passport.session());
 
     app.use((req, res, next) => {
         res.set('X-Powered-By', 'Lots and Lots of Coffee');

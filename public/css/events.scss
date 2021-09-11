@@ -1,0 +1,223 @@
+#events {
+    .overlay {
+        position: fixed;
+
+        background-image: url(../img/bg-home.png);
+    }
+    main {
+        display: grid;
+
+        height: 100%;
+
+        place-content: center;
+    }
+    header {
+        display: flex;
+
+        margin-top: 100px;
+        h3 {
+            font-family: 'Letterboard';
+            font-size: 60px;
+            line-height: 1;
+
+            width: auto;
+
+            text-align: center;
+            text-transform: uppercase;
+
+            color: #fff;
+        }
+    }
+    section {
+        .container {
+            display: flex;
+            flex-direction: row;
+
+            margin: 0 auto;
+
+            justify-content: space-between;
+            h1 {
+                font-family: 'Letterboard';
+                font-size: 42px;
+                line-height: 0;
+
+                margin: 0;
+
+                text-transform: uppercase;
+
+                color: #fff;
+            }
+        }
+    }
+
+
+    .dates {
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+        .date {
+            font-family: 'Letterboard';
+
+            display: flex;
+            flex-direction: row;
+
+            height: 50px;
+            margin-right: 25px;
+
+            cursor: pointer;
+            transition: all 350ms ease-in-out;
+
+            color: #fff;
+            border-bottom: 4px solid transparent;
+            &:hover,
+            &.selected {
+                border-color: #58d6af;
+            }
+            .day {
+                font-size: 48px;
+                line-height: 30px;
+
+                margin-right: 5px;
+            }
+
+            span {
+                font-family: 'Letterboard';
+                font-size: 16px;
+                line-height: 1;
+
+                display: block;
+
+                margin: 0;
+
+                text-transform: uppercase;
+
+                opacity: 0.55;
+                color: #fff;
+            }
+        }
+    }
+
+    #calendar {
+        width: 100%;
+        margin-top: 50px;
+
+
+        .events {
+            display: flex;
+
+            outline: none;
+
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .event {
+                width: 49%;
+                margin-bottom: 25px;
+
+                color: #fff;
+
+                .details {
+                    padding: 15px;
+
+                    border-top: 1px solid rgba(255, 255, 255, 0.35);
+                    background: rgba(22, 25, 27, 0.50);
+                    img {
+                        display: block;
+
+                        max-width: 100%;
+                        height: auto;
+                    }
+                }
+                .location {
+                    p {
+                        font-family: 'Letterboard';
+                        font-size: 16px;
+
+                        margin: 0;
+
+                        letter-spacing: 0.14px;
+                        text-transform: uppercase;
+
+                        color: #fff;
+                        span {
+                            display: block;
+
+                            color: #149ec1;
+                        }
+                    }
+                }
+                .about {
+                    h2 {
+                        font-family: 'Letterboard';
+                        font-size: 20px;
+
+                        margin: 0;
+                        padding: 0;
+
+                        letter-spacing: 0.14px;
+                        text-transform: uppercase;
+                        word-break: break-word;
+                    }
+                    .time {
+                        font-family: 'Raleway';
+                        font-size: 16px;
+
+                        margin: 0;
+
+                        letter-spacing: 0.14px;
+                        text-transform: uppercase;
+
+                        color: #149ec1;
+                    }
+                    span {
+                        font-family: 'Raleway';
+                        font-size: 14px;
+                        line-height: 22px;
+
+                        display: block;
+
+                        margin: 8px 0 0 0;
+
+                        letter-spacing: 0.14px;
+
+                        color: #969696;
+                        a {
+                            transition: all 350ms ease-in-out;
+
+                            color: rgba(239, 193, 17, 0.8);
+                            &:hover {
+                                text-decoration: none;
+
+                                color: rgba(239, 193, 17, 1);
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:768px) {
+    #schedule {
+        header {
+            height: 135px;
+        }
+        section {
+            .container {
+                flex-direction: column;
+                h1 {
+                    text-align: center;
+
+                    order: 1;
+                }
+                .dates {
+                    margin-top: 65px;
+
+                    order: 2;
+                }
+            }
+        }
+    }
+}

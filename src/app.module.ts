@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { RouterModule, Routes } from 'nest-router';
-
+import { SessionModule } from 'nestjs-session';
 
 /* Services */
 import { DiscordService } from './discord/discord.service';
@@ -13,6 +13,9 @@ import { DiscordModule } from './discord/discord.module';
 import { BurzumModule } from './burzum/burzum.module';
 import { BarModule } from './bar/bar.module';
 import { StaffModule } from './staff/staff.module';
+import { EventsModule } from './events/events.module';
+import { AdminModule } from './admin/admin.module';
+import { AuthModule } from './auth/auth.module';
 
 /* Entities */
 import { Staff } from './staff/staff.entity';
@@ -27,6 +30,8 @@ import { Rooms } from './rooms/rooms.entity';
 import { Room } from './room/room.entity';
 
 import { Bookings } from './bookings/bookings.entity';
+import { PassportModule } from '@nestjs/passport';
+
 
 const routes: Routes = [
     {
@@ -40,6 +45,18 @@ const routes: Routes = [
     {
         path: '/staff',
         module: StaffModule,
+    },
+    {
+        path: '/events',
+        module: EventsModule,
+    },
+    {
+        path: '/admin',
+        module: AdminModule,
+    },
+    {
+        path: '/auth',
+        module: AuthModule,
     },
 ];
 
@@ -62,11 +79,15 @@ const routes: Routes = [
             }),
         }),
         RouterModule.forRoutes(routes),
+        AuthModule,
         BurzumModule,
         BarModule,
         StaffModule,
+        AdminModule,
         HttpModule,
-        DiscordModule
+        EventsModule,
+        DiscordModule,
+
     ],
     controllers: [],
     providers: [DiscordService],

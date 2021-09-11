@@ -1,0 +1,51 @@
+{{#extend "title"}}Admin |{{/extend}}
+
+{{#extend "css"}}
+<link href="/css/admin/main.css" rel="stylesheet">
+{{/extend}}
+{{#extend "body_id"}}id="admin"{{/extend}}
+
+
+{{#extend "body_class"}}class="staff edit"{{/extend}}
+
+{{#extend "body"}}
+<div class="container">
+    <form method="POST" action="/admin/staff/{{ staff.id }}" type="">
+        <input type="hidden" name="id" value="{{ staff.id }}">
+        <div class="field">
+            <label>Name</label>
+            <input type="text" name="name" value="{{ staff.name }}">
+        </div>
+        <div class="field">
+            <label>Role</label>
+
+            <select name="role">
+                {{#select staff.role}}
+                <option value="dancer">Dancer</option>
+                <option value="bouncer">Bouncer</option>
+                <option value="dj">DJ</option>
+                <option value="management">Management</option>
+                {{/select}}
+            </select>
+        </div>
+        <div class="field">
+            <label>Description</label>
+            <textarea name="description" id="editor">{{ staff.description }}</textarea>
+        </div>
+        <button>Submit</button>
+    </form>
+</div>
+{{/extend}}
+{{#extend "js"}}
+<script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+{{/extend}}

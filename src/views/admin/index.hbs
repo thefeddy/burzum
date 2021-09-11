@@ -1,0 +1,32 @@
+{{#extend "title"}}Admin |{{/extend}}
+{{#extend "css"}}
+<link href="/css/admin/main.css" rel="stylesheet">
+{{/extend}}
+{{#extend "body_id"}}
+id="admin"
+{{/extend}}
+
+
+{{#extend "body_class"}}
+class="login"
+{{/extend}}
+
+{{#extend "body"}}
+<div class="overlay"></div>
+<section id="login">
+    <form action="/auth/login" method="POST">
+        <div class="field">
+            <label>Username</label>
+            <input type="text" name="username">
+        </div>
+        <div class="field">
+            <label>password</label>
+            <input type="password" name="password">
+        </div>
+        <button type="submit">Login</button>
+    </form>
+</section>
+{{/extend}}
+
+{{#extend "js"}}
+{{/extend}}

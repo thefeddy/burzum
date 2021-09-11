@@ -12,17 +12,15 @@
 // Imports
 // ------------------------------------------------------------------------
 
+@import '../bootstrap/bootstrap';
 
-@import 'bootstrap/bootstrap';
-
-@import 'fonts';
+@import '../fonts';
 
 @import 'global';
 
-@import 'nav';
+@import 'login';
 
-// Pages
-@import 'home';
-@import 'bar';
+@import 'dashboard';
+
 @import 'staff';
-@import 'events';
+@import 'staff-edit';

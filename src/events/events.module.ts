@@ -11,4 +11,4 @@ import { EventsService } from './events.service';
     controllers: [EventsController],
 })
 
-export class StaffModule { }
+export class EventsModule { }

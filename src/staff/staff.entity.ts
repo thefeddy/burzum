@@ -37,6 +37,15 @@ export class Staff {
 
 
     @Column({
+        name: 'discord_id',
+        type: 'varchar',
+        nullable: true,
+        length: 255,
+        select: false,
+    })
+    discord_id: string;
+
+    @Column({
         name: 'name',
         type: 'varchar',
         nullable: true,
@@ -86,9 +95,17 @@ export class Staff {
     })
     description: string;
 
+    @Column({
+        name: 'superuser',
+        type: 'int4',
+        default: () => 0,
+        select: false
+    })
+    superuser: number;
+
     toResponseObject(): StaffRO {
-        const { id, username, password, name, role, photo, joined, active, stream, description } = this;
-        const responseObject: StaffRO = { id, username, password, name, role, photo, joined, active, stream, description };
+        const { id, username, password, name, role, photo, joined, active, stream, description, superuser, discord_id } = this;
+        const responseObject: StaffRO = { id, username, password, name, role, photo, joined, active, stream, description, superuser, discord_id };
 
         return responseObject;
     }

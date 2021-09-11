@@ -1,0 +1,16 @@
+#admin {
+    &.staff {
+        &.edit {
+            .field {
+                label {
+                    display: block;
+
+                    color: #fff;
+                }
+                .ck-editor__editable_inline {
+                    min-height: 400px;
+                }
+            }
+        }
+    }
+}

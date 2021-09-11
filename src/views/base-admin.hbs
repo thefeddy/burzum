@@ -27,7 +27,7 @@
     <meta name="msapplication-square310x310logo" content="/fav/mstile-310x310.png" />
 
 
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/admin/main.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;400;500;700;900&display=swap"
@@ -37,29 +37,27 @@
 </head>
 
 <body {{{block "body_id" }}} {{{block "body_class" }}}>
-    <nav>
-        <ul>
-            <li>
-                <a href="/">Burzum</a>
-            </li>
-            <li>
-                <a href="/bar/">The Bar</a>
-            </li>
-            <li>
-                <a href="/staff/">The Staff</a>
-            </li>
 
-            <li>
-                <a href="/events/">Events</a>
-            </li>
-
-            <li>
-                <a href="https://discord.gg/cbTsedc">Discord</a>
-            </li>
-        </ul>
-    </nav>
     <main>
-        {{{block "body"}}}
+        <aside class="col-md-2">
+            <h1>Burzum</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <i class="fad fa-home-lg-alt"></i><a href="/admin/dashboard">Dashboard</a>
+                    </li>
+                    <li>
+                        <i class="fad fa-user-friends"></i><a href="/admin/staff/">The Staff</a>
+                    </li>
+                    <li>
+                        <i class="fad fa-calendar-week"></i><a href="/admin/events/">Events</a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <section class="col-md-10">
+            {{{block "body"}}}
+        </section>
     </main>
     {{{block "js"}}}
 </body>

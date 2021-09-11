@@ -4,6 +4,7 @@ export class StaffRO {
     id: number;
     username: string;
     password: string;
+    discord_id: string;
     name: string;
     photo: string;
     role: string;
@@ -11,6 +12,7 @@ export class StaffRO {
     active: string;
     stream: string;
     description: string;
+    superuser: number;
 }
 
 export class StaffIdRO {

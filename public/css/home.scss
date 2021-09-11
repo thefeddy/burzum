@@ -1,10 +1,14 @@
 #home {
     height: calc(100vh - 100px);
+
     main {
         display: grid;
 
         height: 100%;
 
         place-content: center;
+        .overlay {
+            background-image: url(../img/bg-home.png);
+        }
     }
 }

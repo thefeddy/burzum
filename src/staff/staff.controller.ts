@@ -13,8 +13,6 @@ export class StaffController {
     async index(@Res() res: Response) {
         const staff = await this.staffService.findAll();
 
-        console.log(staff);
-
         return { staff };
     }
 }

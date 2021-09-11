@@ -6,7 +6,7 @@ $fa-font-path: '/fonts/fontawesome';
 @import 'fontawesome/solid';
 @import 'fontawesome/light';
 @import 'fontawesome/brands';
-
+@import 'fontawesome/duotone';
 
 @font-face {
     font-family: 'Letterboard';
@@ -14,7 +14,7 @@ $fa-font-path: '/fonts/fontawesome';
     font-style: normal;
 
     font-display: swap;
-    src: url('../fonts/letterboard/letterboard.woff2') format('woff2'),;
+    src: url('/fonts/letterboard/letterboard.woff2') format('woff2'),;
 }
 
 
