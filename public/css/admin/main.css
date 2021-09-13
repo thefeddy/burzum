@@ -29240,18 +29240,25 @@ main {
   display: flex;
   min-height: 100%; }
 
+h1, .h1 {
+  font-family: 'Letterboard';
+  font-size: 40px;
+  line-height: 1;
+  margin-top: 25px;
+  text-transform: uppercase;
+  color: #000; }
+
 aside {
-  height: 100vh;
-  background: #171717; }
-  aside h1, aside .h1 {
-    font-family: 'Letterboard';
-    font-size: 40px;
-    line-height: 1;
-    margin-top: 25px;
-    text-align: center;
-    text-transform: uppercase;
-    color: #fff; }
+  min-height: 100vh;
+  background: #070503;
+  box-shadow: 6px 0 4px -4px rgba(0, 0, 0, 0.5); }
+  aside img {
+    display: block;
+    margin: 25px auto 25px auto;
+    filter: grayscale(1); }
   aside nav {
+    position: sticky;
+    top: 25px;
     margin-top: 50px; }
     aside nav ul {
       list-style: none; }
@@ -29264,77 +29271,83 @@ aside {
         border-right: 2px solid transparent;
         border-radius: 2px; }
         aside nav ul li i {
-          margin-right: 25px; }
+          font-size: 25px;
+          width: 50px;
+          color: #af4a1f !important; }
         aside nav ul li a {
           font-family: 'Letterboard';
+          transition: color 550ms ease-in-out;
           text-decoration: none;
           letter-spacing: 2px;
           color: #fff; }
+          aside nav ul li a:hover {
+            color: #af4a1f; }
         aside nav ul li:hover {
           border-color: #fff; }
 
-section {
-  background: #1e1e1e; }
-
-#admin.login {
-  height: calc(100vh - 50px); }
-  #admin.login main {
-    position: relative;
-    display: grid;
-    height: 100%;
-    place-content: center; }
-    #admin.login main .overlay {
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      left: 0;
-      width: 100%;
+#admin {
+  height: auto;
+  min-height: 100%; }
+  #admin.login {
+    height: calc(100vh - 50px);
+    background: #070503; }
+    #admin.login main {
+      position: relative;
+      display: grid;
       height: 100%;
-      background: url(../../img/bg-home.png) no-repeat;
-      background-size: cover;
-      filter: blur(4px); }
-      #admin.login main .overlay::after {
-        position: absolute;
+      place-content: center; }
+      #admin.login main .overlay {
+        position: fixed;
+        z-index: -1;
         top: 0;
         left: 0;
-        display: block;
         width: 100%;
         height: 100%;
-        content: '';
+        background: url(../../img/bg-home.png) no-repeat;
+        background-size: cover;
+        filter: blur(4px); }
+        #admin.login main .overlay::after {
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          content: '';
+          background: rgba(0, 0, 0, 0.75); }
+      #admin.login main form .field label {
+        font-family: Letterboard;
+        font-size: 20px;
+        display: block;
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+        color: #fff; }
+      #admin.login main form .field input {
+        font-family: Raleway;
+        font-size: 18px;
+        width: 300px;
+        height: 40px;
+        margin-bottom: 10px;
+        padding-left: 10px;
+        transition: all 550ms ease-in-out;
+        letter-spacing: 2px;
+        color: #fff;
+        border: none;
+        border: 1px solid transparent;
+        outline: none;
         background: rgba(0, 0, 0, 0.75); }
-    #admin.login main form .field label {
-      font-family: Letterboard;
-      font-size: 20px;
-      display: block;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-      color: #fff; }
-    #admin.login main form .field input {
-      font-family: Raleway;
-      font-size: 18px;
-      width: 300px;
-      height: 40px;
-      margin-bottom: 10px;
-      padding-left: 10px;
-      transition: all 550ms ease-in-out;
-      letter-spacing: 2px;
-      color: #fff;
-      border: none;
-      border: 1px solid transparent;
-      outline: none;
-      background: rgba(0, 0, 0, 0.75); }
-      #admin.login main form .field input:focus {
-        border-color: #af4a1f; }
-    #admin.login main form button {
-      font-family: Letterboard;
-      width: 100px;
-      height: 40px;
-      margin-top: 25px;
-      margin-left: auto;
-      letter-spacing: 2px;
-      color: #fff;
-      border: none;
-      background: #af4a1f; }
+        #admin.login main form .field input:focus {
+          border-color: #af4a1f; }
+      #admin.login main form button {
+        font-family: Letterboard;
+        width: 100px;
+        height: 40px;
+        margin-top: 25px;
+        margin-left: auto;
+        letter-spacing: 2px;
+        color: #fff;
+        border: none;
+        background: #af4a1f; }
 
 #admin.staff #staff thead {
   border-radius: 5px;
@@ -29352,22 +29365,92 @@ section {
   background-color: rgba(249, 250, 251, 0.96); }
 
 #admin.staff .dataTable-dropdown label {
-  color: #fff; }
+  color: #000; }
 
 #admin.staff .dataTable-bottom {
-  color: #fff; }
+  color: #000; }
   #admin.staff .dataTable-bottom .dataTable-info {
-    color: #fff; }
+    color: #000; }
   #admin.staff .dataTable-bottom .dataTable-pagination li.active a {
     color: #000; }
   #admin.staff .dataTable-bottom .dataTable-pagination a {
+    color: #000; }
+
+#admin.staff.edit form {
+  margin-top: 150px;
+  padding-bottom: 50px; }
+
+#admin.staff.edit .field {
+  margin-bottom: 25px; }
+  #admin.staff.edit .field .photo img {
+    display: block;
+    width: 50%;
+    height: 50%;
+    object-fit: contain; }
+  #admin.staff.edit .field label {
+    font-family: 'Raleway';
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+    color: #000; }
+  #admin.staff.edit .field button[type='submit'] {
+    margin-top: 25px; }
+  #admin.staff.edit .field .ck-editor__editable_inline {
+    min-height: 400px; }
+  #admin.staff.edit .field .ck-label {
+    display: none; }
+
+#admin.staff.edit progress {
+  transition: all 550ms ease-in-out;
+  opacity: 0; }
+  #admin.staff.edit progress.is-showing {
+    opacity: 1; }
+
+#admin.staff.edit .preview-slide {
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 500px;
+  margin-bottom: 25px;
+  cursor: zoom-in;
+  transition: all 550ms ease-in-out;
+  background-position: center center; }
+  #admin.staff.edit .preview-slide .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.646324) 100%); }
+  #admin.staff.edit .preview-slide .name {
+    font-family: 'Letterboard';
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+    overflow: hidden;
+    transition: all 550ms ease-in-out;
+    letter-spacing: 2px;
+    opacity: 0;
     color: #fff; }
-
-#admin.staff.edit .field label {
-  display: block;
-  color: #fff; }
-
-#admin.staff.edit .field .ck-editor__editable_inline {
-  min-height: 400px; }
+  #admin.staff.edit .preview-slide .role {
+    font-family: 'Letterboard';
+    font-size: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 25px;
+    transition: all 550ms ease-in-out;
+    transition-delay: 500ms;
+    letter-spacing: 2px;
+    opacity: 0;
+    color: #af4a1f; }
+  #admin.staff.edit .preview-slide:hover {
+    width: 1000px; }
+    #admin.staff.edit .preview-slide:hover .name {
+      bottom: 50px;
+      opacity: 1; }
+    #admin.staff.edit .preview-slide:hover .role {
+      bottom: 25px;
+      opacity: 1; }
 
 /*# sourceMappingURL=main.css.map */

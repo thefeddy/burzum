@@ -1,7 +1,10 @@
 #admin {
+    height: auto;
+    min-height: 100%;
     &.login {
         height: calc(100vh - 50px);
 
+        background: #070503;
         main {
             position: relative;
 
@@ -12,7 +15,7 @@
             place-content: center;
 
             .overlay {
-                position: absolute;
+                position: fixed;
                 z-index: -1;
                 top: 0;
                 left: 0;

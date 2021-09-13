@@ -11,7 +11,7 @@ export class StaffController {
     @Get('/')
     @Render('staff/index')
     async index(@Res() res: Response) {
-        const staff = await this.staffService.findAll();
+        const staff = await this.staffService.findAllActive();
 
         return { staff };
     }

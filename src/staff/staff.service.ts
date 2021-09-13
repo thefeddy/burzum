@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { getRepository, Repository } from 'typeorm';
 
 import { Staff } from './staff.entity';
-import { StaffDTO, StaffUpdateDTO } from './staff.dto';
+import { StaffCreateDTO, StaffDTO, StaffUpdateDTO } from './staff.dto';
 
 @Injectable()
 export class StaffService {
@@ -17,6 +17,12 @@ export class StaffService {
         return await this.staffRepository.find();
     }
 
+    async findAllActive(): Promise<Staff[]> {
+        return await this.staffRepository.find({
+            where: { active: 'true' }
+        });
+    }
+
     async findByDate(date: Date): Promise<Staff> {
         return this.staffRepository.findOne({
             where: { date },
@@ -27,11 +33,6 @@ export class StaffService {
         return this.staffRepository.findOne({
             where: { id },
         });
-    }
-
-    async add(image: StaffDTO): Promise<Staff> {
-        return;
-        //return await this.imagesRepository.save({ ...image, statusCode: HttpStatus.ACCEPTED });
     }
 
     async findOne(username: string): Promise<Staff | undefined> {
@@ -48,6 +49,20 @@ export class StaffService {
     async update(staff: any): Promise<Staff> {
         console.log(staff);
         return await this.staffRepository.save({ ...staff, id: Number(staff.id) })
+    }
+
+    async add(staff: StaffCreateDTO): Promise<Staff> {
+        const { name } = staff;
+        console.log(staff);
+        const staffing = await this.staffRepository.findOne({
+            where: { name },
+        });
+
+        if (staffing) {
+            throw new HttpException('Staff Already Entered', HttpStatus.FOUND);
+        }
+
+        return await this.staffRepository.save({ ...staff });
     }
 
 }

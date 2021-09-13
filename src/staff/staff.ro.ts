@@ -1,5 +1,3 @@
-import { RoleRO } from '../role/role.ro';
-
 export class StaffRO {
     id: number;
     username: string;

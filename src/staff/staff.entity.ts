@@ -13,7 +13,7 @@ import { StaffRoleEnum } from '../enums/role.enums';
 
 @Entity()
 export class Staff {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('increment')
     id: number;
 
     @Column({
@@ -56,8 +56,7 @@ export class Staff {
     @Column({
         name: 'photo',
         type: 'varchar',
-        nullable: true,
-        length: 255
+        nullable: true
     })
     photo: string;
 

@@ -1,5 +1,4 @@
-import { RoleDTO } from '../role/role.dto';
-
+import { StaffRoleEnum } from 'src/enums/role.enums';
 export class StaffDTO {
     readonly id: number;
     readonly username: string;
@@ -7,7 +6,7 @@ export class StaffDTO {
     readonly discord_id: string;
     readonly name: string;
     readonly photo: string;
-    readonly role: string;
+    readonly role: StaffRoleEnum;
     readonly joined: Date;
     readonly active: boolean;
     readonly description: string;
@@ -19,7 +18,15 @@ export class StaffUpdateDTO {
     readonly discord_id: string;
     readonly name: string;
     readonly photo: string;
-    readonly role: string;
+    readonly role: StaffRoleEnum;
     readonly active: boolean;
+    readonly description: string;
+}
+
+export class StaffCreateDTO {
+    readonly name: string;
+    readonly photo: string;
+    readonly role: StaffRoleEnum;
+    readonly active: string;
     readonly description: string;
 }

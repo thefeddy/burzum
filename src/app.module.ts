@@ -1,9 +1,9 @@
 import { Module, HttpModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MulterModule } from '@nestjs/platform-express';
 
 import { RouterModule, Routes } from 'nest-router';
-import { SessionModule } from 'nestjs-session';
 
 /* Services */
 import { DiscordService } from './discord/discord.service';
@@ -19,7 +19,6 @@ import { AuthModule } from './auth/auth.module';
 
 /* Entities */
 import { Staff } from './staff/staff.entity';
-import { Role } from './role/role.entity';
 import { Events } from './events/events.entity';
 
 import { Contests } from './contests/contests.entity';
@@ -30,7 +29,8 @@ import { Rooms } from './rooms/rooms.entity';
 import { Room } from './room/room.entity';
 
 import { Bookings } from './bookings/bookings.entity';
-import { PassportModule } from '@nestjs/passport';
+import { APP_FILTER } from '@nestjs/core';
+import { NotFoundExceptionFilter } from './common/filters/not-found';
 
 
 const routes: Routes = [
@@ -74,11 +74,15 @@ const routes: Routes = [
                 username: process.env.TYPEORM_USERNAME,
                 password: process.env.TYPEORM_PASSWORD,
                 database: process.env.TYPEORM_DATABASE,
-                entities: [Staff, Role, Events, Contests, Bar, Rooms, Room, Bookings, Contestants],
+                entities: [Staff, Events, Contests, Bar, Rooms, Room, Bookings, Contestants],
                 synchronize: true,
             }),
         }),
         RouterModule.forRoutes(routes),
+        MulterModule.register({
+            dest: './public/uploads',
+        }),
+
         AuthModule,
         BurzumModule,
         BarModule,
@@ -90,7 +94,13 @@ const routes: Routes = [
 
     ],
     controllers: [],
-    providers: [DiscordService],
+    providers: [
+        DiscordService,
+        {
+            provide: APP_FILTER,
+            useClass: NotFoundExceptionFilter,
+        }
+    ]
 })
 
 export class AppModule { }

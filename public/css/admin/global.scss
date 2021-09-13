@@ -4,29 +4,43 @@ body {
     height: 100%;
     min-height: 100%;
 }
+
 main {
     display: flex;
 
     min-height: 100%;
 }
+
+h1 {
+    font-family: 'Letterboard';
+    font-size: 40px;
+    line-height: 1;
+
+    margin-top: 25px;
+
+    text-transform: uppercase;
+
+    color: #000;
+}
+
 aside {
-    height: 100vh;
+    min-height: 100vh;
 
-    background: #171717;
-    h1 {
-        font-family: 'Letterboard';
-        font-size: 40px;
-        line-height: 1;
+    background: #070503;
+    box-shadow: 6px 0 4px -4px rgba(0, 0, 0, 0.5);
+    img {
+        display: block;
 
-        margin-top: 25px;
+        margin: 25px auto 25px auto;
 
-        text-align: center;
-        text-transform: uppercase;
-
-        color: #fff;
+        filter: grayscale(1);
     }
     nav {
+        position: sticky;
+        top: 25px;
+
         margin-top: 50px;
+
         ul {
             list-style: none;
             li {
@@ -41,15 +55,23 @@ aside {
                 border-right: 2px solid transparent;
                 border-radius: 2px;
                 i {
-                    margin-right: 25px;
+                    font-size: 25px;
+
+                    width: 50px;
+
+                    color: #af4a1f !important;
                 }
                 a {
                     font-family: 'Letterboard';
 
+                    transition: color 550ms ease-in-out;
                     text-decoration: none;
                     letter-spacing: 2px;
 
                     color: #fff;
+                    &:hover {
+                        color: #af4a1f;
+                    }
                 }
                 &:hover {
                     border-color: #fff;
@@ -57,7 +79,4 @@ aside {
             }
         }
     }
-}
-section {
-    background: #1e1e1e;
 }
