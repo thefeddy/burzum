@@ -10,7 +10,10 @@
         justify-content: space-evenly;
     }
     #bartender {
-        margin-top: 15px;
+        display: flex;
+
+        margin: 20px 0;
+
         .photo {
             position: relative;
 
@@ -24,13 +27,13 @@
 
             border-radius: 8px;
             &:hover {
-                .overlay {
+                .details {
                     visibility: visible;
 
                     opacity: 1;
                 }
             }
-            .overlay {
+            .details {
                 position: absolute;
                 top: 0;
                 left: 0;
@@ -79,6 +82,10 @@
                 }
             }
             img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
             }
         }
     }

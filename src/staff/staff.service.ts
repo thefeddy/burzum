@@ -14,12 +14,24 @@ export class StaffService {
     ) { }
 
     async findAll(): Promise<Staff[]> {
-        return await this.staffRepository.find();
+        return await this.staffRepository.find({
+            order: { id: 'ASC' }
+        });
     }
 
     async findAllActive(): Promise<Staff[]> {
         return await this.staffRepository.find({
-            where: { active: 'true' }
+            where: { active: 'true' },
+            order: { id: 'ASC' }
+        });
+    }
+
+    async findBartenders(): Promise<Staff[]> {
+        return await this.staffRepository.find({
+            where: {
+                active: 'true', role: 'bartender'
+            },
+            order: { id: 'ASC' }
         });
     }
 

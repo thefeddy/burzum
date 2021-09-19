@@ -1,17 +1,21 @@
 import { Module, HttpModule } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AuthService } from '../auth/auth.service';
 import { AdminController } from './admin.controller';
 
 
-import { Staff } from 'src/staff/staff.entity';
-import { StaffService } from 'src/staff/staff.service';
+import { Staff } from '../staff/staff.entity';
+import { Bar } from 'src/bar/bar.entity';
+
+
+import { StaffService } from '../staff/staff.service';
+import { BarService } from '../bar/bar.service';
+
 
 
 @Module({
-    imports: [HttpModule, TypeOrmModule.forFeature([Staff])],
-    providers: [StaffService],
+    imports: [HttpModule, TypeOrmModule.forFeature([Staff]), TypeOrmModule.forFeature([Bar])],
+    providers: [StaffService, BarService],
     controllers: [AdminController],
 })
 

@@ -20,18 +20,18 @@ export class Bar {
     name: string;
 
     @Column({
-        name: 'items',
+        name: 'description',
         type: 'varchar',
-        nullable: true,
-        length: 255
+        nullable: true
     })
-    items: string;
+    description: string;
 
     @Column({
         name: 'active',
         type: 'varchar',
         nullable: true,
-        length: 255
+        length: 255,
+        default: () => 'true',
     })
     active: string;
 
@@ -52,8 +52,8 @@ export class Bar {
     type: string;
 
     toResponseObject(): BarRO {
-        const { id, name, items, active, price, type } = this;
-        const responseObject: BarRO = { id, name, items, active, price, type };
+        const { id, name, description, active, price, type } = this;
+        const responseObject: BarRO = { id, name, description, active, price, type };
 
         return responseObject;
     }

@@ -1,0 +1,43 @@
+{{#extend "title"}}Admin |{{/extend}}
+{{#extend "css"}}
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+{{/extend}}
+{{#extend "body_id"}}id="admin"{{/extend}}
+{{#extend "body_class"}}class="staff"{{/extend}}
+
+{{#extend "body"}}
+<div class="container">
+    <div class="row">
+        <h1>Menu</h1>
+        <table id="staff">
+            <thead>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Type</th>
+                <th></th>
+            </thead>
+            <tbody>
+
+                {{#each menu}}
+                <tr>
+                    <td><a href="/admin/bar/{{ id }}">{{ name }}</a></td>
+                    <td>{{ price }} gil</td>
+                    <td>{{ type }}</td>
+                    <td><a href="/admin/bar/{{ id }}">Edit</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+        <a href="add">Add</a>
+    </div>
+</div>
+{{/extend}}
+{{#extend "js"}}
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+<script>
+    const dataTable = new simpleDatatables.DataTable('#staff', {
+        searchable: true,
+        fixedHeight: true,
+    })
+</script>
+{{/extend}}

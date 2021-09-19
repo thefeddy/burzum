@@ -29284,6 +29284,8 @@ aside {
             color: #af4a1f; }
         aside nav ul li:hover {
           border-color: #fff; }
+  aside + section {
+    background: #58616e; }
 
 #admin {
   height: auto;

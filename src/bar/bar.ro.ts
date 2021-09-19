@@ -1,7 +1,7 @@
 export class BarRO {
     id: number;
     name: string;
-    items: string;
+    description: string;
     active: string;
     price: number;
     type: string;

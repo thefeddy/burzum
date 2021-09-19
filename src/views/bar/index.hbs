@@ -12,35 +12,33 @@ Bar |
         <span>Some Fancy Wording Here </span>
     </header>
     <section id="bartender">
+        {{#each bartenders}}
         <div class="photo">
-            <div class="overlay">
-                <h4>Jibs</h4>
-                <span>He/Him - Straight</span>
-                <p>Jibs is one chill dude. Always laid back looking to have good times with his patrons. When his not
-                    getting you a drink or snack he will be livening up the bar about as much as the dance floor with
-                    his random quips or going full coyote ugly with various patrons on the bar not to be outdone by the
-                    dance floor. He likes good conversation and can be quite the charmer when he wants to be.</p>
+            <div class="details">
+                <h4>{{ name }}</h4>
+                {{{ description }}}
             </div>
-            <img src="/img/staff-jibs.png" alt="Staff Name" />
+            <img src="{{ photo }}" alt="{{ name }}" />
         </div>
+        {{/each}}
     </section>
     <section id="the-menu">
-        <div class="menu drinks">
+        <div class="menu drinks col-12 col-md-5">
             <h2>Drinks</h2>
             {{#each drinks}}
             <div class="item">
                 <h3>{{ name }} <span>{{ price }}<em>gil</em></h3>
-                <div class="items">{{ items }}</div>
+                <div class="items">{{{ description }}}</div>
             </div>
             {{/each}}
         </div>
 
-        <div class="menu food">
+        <div class="menu food col-12 col-md-5">
             <h2>Food</h2>
             {{#each food}}
             <div class="item">
                 <h3>{{ name }} <span>{{ price }}<em>gil</em></h3>
-                <div class="items">{{ items }}</div>
+                <div class="items">{{{ description }}}</div>
             </div>
             {{/each}}
         </div>

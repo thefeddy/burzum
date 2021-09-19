@@ -1,18 +1,21 @@
 import { Controller, Get, Render, Res, HttpService } from '@nestjs/common';
 
 import { Response } from 'express';
+import { StaffService } from 'src/staff/staff.service';
 
 import { BarService } from './bar.service';
 
 @Controller('')
 export class BarController {
-    constructor(private barService: BarService, private http: HttpService) { }
+    constructor(private barService: BarService, private staffService: StaffService) { }
 
     @Get('/')
     @Render('bar/index')
     async index(@Res() res: Response) {
 
-        const items = await this.barService.findAll();
+        const items = await this.barService.findAllActive();
+        const bartenders = await this.staffService.findBartenders();
+        console.log(bartenders)
         let drinks = [];
         let food = [];
 
@@ -26,6 +29,6 @@ export class BarController {
                 }
             }
         }
-        return { drinks, food };
+        return { drinks, food, bartenders };
     }
 }

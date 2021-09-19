@@ -28,20 +28,12 @@ export class Events {
     name: string;
 
     @Column({
-        name: 'start',
+        name: 'date',
         type: 'varchar',
         nullable: true,
         length: 255
     })
-    start: Date;
-
-    @Column({
-        name: 'end',
-        type: 'varchar',
-        nullable: true,
-        length: 255
-    })
-    end: Date;
+    date: Date;
 
     @OneToMany(() => Staff, staff => staff.id)
     public staff: Staff[];
@@ -54,19 +46,9 @@ export class Events {
     @JoinColumn()
     contest: number;
 
-    @ManyToOne(() => Staff)
-    @JoinColumn()
-    bartender: number;
-
-    @ManyToOne(() => Bar)
-    @JoinColumn()
-    bar_menu: number;
-
-
-
     toResponseObject(): EventRO {
-        const { id, name, start, end, dj, contest, bar_menu, bartender } = this;
-        const responseObject: EventRO = { id, name, start, end, dj, contest, bar_menu, bartender };
+        const { id, name, date, dj, contest } = this;
+        const responseObject: EventRO = { id, name, date, dj, contest };
 
         return responseObject;
     }
