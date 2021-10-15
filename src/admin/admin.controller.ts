@@ -1,15 +1,22 @@
 import { Controller, Get, Render, Res, HttpService, Next, Req, UseGuards, Post, Request, Body, Param, Put, UseInterceptors, UploadedFile, HttpStatus } from '@nestjs/common';
 import { AnyFilesInterceptor, FileInterceptor } from '@nestjs/platform-express';
 
-import { Response } from 'express';
+import { json, Response } from 'express';
 import { extname } from 'path';
 
-import { RolesGuard } from '../common/guards/role.guard';
 
-import { StaffService } from '../staff/staff.service';
 
 import { diskStorage } from 'multer';
-import { BarService } from 'src/bar/bar.service';
+
+/* Guards */
+import { RolesGuard } from '../common/guards/role.guard';
+
+
+/* Services */
+import { StaffService } from '../staff/staff.service';
+import { BarService } from '../bar/bar.service';
+import { EventsService } from '../events/events.service';
+import { GalleryService } from 'src/gallery/gallery.service';
 
 export const editFileName = (req, file, callback) => {
     const name = file.originalname.split('.')[0];
@@ -31,7 +38,12 @@ export const imageFileFilter = (req, file, callback) => {
 
 @Controller('')
 export class AdminController {
-    constructor(private http: HttpService, private staffService: StaffService, private barService: BarService) { }
+    constructor(
+        private eventsService: EventsService,
+        private staffService: StaffService,
+        private barService: BarService,
+        private galleryService: GalleryService
+    ) { }
 
     /* Login */
     @Get('/')
@@ -39,7 +51,7 @@ export class AdminController {
     async index() { }
 
 
-    /* Dashboard */
+    /* Gallery */
     @UseGuards(RolesGuard)
     @Get('/staff')
     async staffing(@Res() res: Response, @Req() request) {
@@ -82,7 +94,7 @@ export class AdminController {
         if (file) {
             staff.photo = `/uploads/${file.filename}`;
         }
-        console.log(staff);
+
         const user = await this.staffService.update(staff);
         return res.status(HttpStatus.ACCEPTED).json({ message: 'updated' });
     }
@@ -121,7 +133,7 @@ export class AdminController {
     @Post('/bar/add')
     @UseInterceptors(AnyFilesInterceptor())
     async newItem(@Res() res: Response, @Body() item: any): Promise<any> {
-        console.log(item);
+
         const menu = await this.barService.add(item);
         return res.status(HttpStatus.ACCEPTED).json({ message: 'Added Item' });
     }
@@ -153,9 +165,136 @@ export class AdminController {
         return res.status(HttpStatus.ACCEPTED).json({ message: 'updated' });
     }
 
+    /* Events */
+    @UseGuards(RolesGuard)
+    @Get('/events/')
+    async events(@Res() res: Response) {
+        const events = await this.eventsService.findAll();
+        return res.render(
+            'admin/events/index',
+            { layout: 'base-admin', events, eventsJSON: JSON.stringify(events) },
+        );
+    }
+
+    @UseGuards(RolesGuard)
+    @Post('/events/add')
+    async addEvent(@Res() res: Response, @Body() event: any): Promise<any> {
+
+        await this.eventsService.add(event);
+        return res.status(HttpStatus.ACCEPTED).json({ event });
+    }
+
+    @UseGuards(RolesGuard)
+    @Get('/events/add/')
+    async addEventIndex(@Res() res: Response, @Req() request) {
+        return res.render(
+            'admin/events/add',
+            { layout: 'base-admin' },
+        );
+    }
+
+    @UseGuards(RolesGuard)
+    @Get('/events/:id')
+    async editEvent(@Res() res: Response, @Param('id') id: number) {
+        const event = await this.eventsService.findById(id);
+        return res.render(
+            'admin/events/edit',
+            { layout: 'base-admin', event },
+        );
+    }
+
+    @UseGuards(RolesGuard)
+    @Put('/events/update/')
+    @UseInterceptors(AnyFilesInterceptor())
+    async updateEvent(@Res() res: Response, @Body() event: any): Promise<any> {
+        delete event.schedule;
+
+        const item = await this.eventsService.update(event);
+        return res.status(HttpStatus.ACCEPTED).json({ message: 'updated' });
+    }
+
+    /* Gallery */
+    @UseGuards(RolesGuard)
+    @Get('/gallery')
+    async gallery(@Res() res: Response, @Req() request) {
+        let gallery = await this.galleryService.findAll();
+        return res.render(
+            'admin/gallery/index',
+            { layout: 'base-admin', gallery },
+        );
+    }
+
+    @UseGuards(RolesGuard)
+    @Get('/gallery/add')
+    async addGallery(@Res() res: Response, @Req() request) {
+        return res.render(
+            'admin/gallery/add',
+            { layout: 'base-admin' },
+        );
+    }
+
+    @UseGuards(RolesGuard)
+    @Get('/gallery/:id')
+    async editPhoto(@Res() res: Response, @Param('id') id: number) {
+        const photo = await this.galleryService.findById(id);
+        return res.render(
+            'admin/gallery/edit',
+            { layout: 'base-admin', photo },
+        );
+    }
+
+    @UseGuards(RolesGuard)
+    @Put('/gallery/')
+    @UseInterceptors(FileInterceptor('photo', {
+        storage: diskStorage({
+            destination: './public/uploads/gallery/',
+            filename: editFileName,
+        }),
+        fileFilter: imageFileFilter,
+    }))
+    async updateGallery(@Res() res: Response, @Body() photo: any, @UploadedFile() file): Promise<any> {
+        if (file) {
+            photo.photo = `/uploads/gallery/${file.filename}`;
+        }
+
+        const image = await this.galleryService.update(photo);
+        return res.status(HttpStatus.ACCEPTED).json({ message: 'Updated Photo in Gallery' });
+    }
+
+    @UseGuards(RolesGuard)
+    @Post('/gallery/add')
+    @UseInterceptors(FileInterceptor('photo', {
+        storage: diskStorage({
+            destination: './public/uploads/gallery/',
+            filename: editFileName,
+        }),
+        fileFilter: imageFileFilter,
+    }))
+    async addPhoto(@Res() res: Response, @Body() photo: any, @UploadedFile() file): Promise<any> {
+
+        if (file) {
+            photo.photo = `/uploads/gallery/${file.filename}`;
+        }
+
+        const user = await this.galleryService.add(photo);
+        return res.status(HttpStatus.ACCEPTED).json({ message: 'Added Photo to the Gallery' });
+    }
+
+
+    /* RP Menu */
+    @UseGuards(RolesGuard)
+    @Get('/rp')
+    async menu(@Res() res: Response, @Req() request) {
+        let gallery = await this.galleryService.findAll();
+        return res.render(
+            'admin/rp/index',
+            { layout: 'base-admin', gallery },
+        );
+    }
+
     /* Dashboard */
     @UseGuards(RolesGuard)
-    @Get('/dashboard')
+    @Get('/dashboard/')
     async dashboard(@Res() res: Response) {
         return res.render(
             'admin/dashboard',

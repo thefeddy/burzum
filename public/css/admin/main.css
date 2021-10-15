@@ -29287,6 +29287,26 @@ aside {
   aside + section {
     background: #58616e; }
 
+form .field {
+  margin-bottom: 25px; }
+  form .field .photo img {
+    display: block;
+    width: 50%;
+    height: 50%;
+    object-fit: contain; }
+  form .field label {
+    font-family: 'Raleway';
+    font-weight: 700;
+    display: block;
+    margin-bottom: 10px;
+    color: #000; }
+  form .field button[type='submit'] {
+    margin-top: 25px; }
+  form .field .ck-editor__editable_inline {
+    min-height: 200px; }
+  form .field .ck-label {
+    display: none; }
+
 #admin {
   height: auto;
   min-height: 100%; }
@@ -29305,7 +29325,7 @@ aside {
         left: 0;
         width: 100%;
         height: 100%;
-        background: url(../../img/bg-home.png) no-repeat;
+        background: url(../../img/bg-home.jpg) no-repeat;
         background-size: cover;
         filter: blur(4px); }
         #admin.login main .overlay::after {
@@ -29382,26 +29402,6 @@ aside {
   margin-top: 150px;
   padding-bottom: 50px; }
 
-#admin.staff.edit .field {
-  margin-bottom: 25px; }
-  #admin.staff.edit .field .photo img {
-    display: block;
-    width: 50%;
-    height: 50%;
-    object-fit: contain; }
-  #admin.staff.edit .field label {
-    font-family: 'Raleway';
-    font-weight: 700;
-    display: block;
-    margin-bottom: 10px;
-    color: #000; }
-  #admin.staff.edit .field button[type='submit'] {
-    margin-top: 25px; }
-  #admin.staff.edit .field .ck-editor__editable_inline {
-    min-height: 400px; }
-  #admin.staff.edit .field .ck-label {
-    display: none; }
-
 #admin.staff.edit progress {
   transition: all 550ms ease-in-out;
   opacity: 0; }
@@ -29454,5 +29454,14 @@ aside {
     #admin.staff.edit .preview-slide:hover .role {
       bottom: 25px;
       opacity: 1; }
+
+#admin.gallery img {
+  max-width: 50%; }
+
+#admin.gallery progress {
+  transition: all 550ms ease-in-out;
+  opacity: 0; }
+  #admin.gallery progress.is-showing {
+    opacity: 1; }
 
 /*# sourceMappingURL=main.css.map */

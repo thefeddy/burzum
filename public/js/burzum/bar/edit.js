@@ -14,7 +14,7 @@ const bar = {
             console.log(formData);
             let request = new XMLHttpRequest();
 
-            request.open('PUT', '/admin/bar/');
+            request.open('PUT', '/admin/events/');
             request.upload.addEventListener('progress', function (event) {
                 let percent = (event.loaded / event.total) * 100;
                 document.querySelector('#file').setAttribute('value', percent);

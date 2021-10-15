@@ -1,0 +1,350 @@
+{
+    "gaylord.palms.mail-room.elevator1": {
+        "os": {
+            "name": "Raspbian GNU/Linux",
+            "version": "9",
+            "edition": "stretch"
+        },
+        "platform": {
+            "system": "Linux",
+            "release": "4.19.66-v7+",
+            "platform": "Linux-4.19.66-v7+-armv7l-with-glibc2.24"
+        },
+        "network": {
+            "hostname": "raspberrypi",
+            "ip_address": "192.168.0.114"
+        },
+        "python_version": "3.9.4",
+        "topic": {
+            "client": "gaylord",
+            "location": "palms",
+            "zone": "mail-room",
+            "id": "elevator1",
+            "path": "gaylord/palms/mail-room/elevator1"
+        },
+        "key": "gaylord.palms.mail-room.elevator1",
+        "client_config": {
+            "name": "/home/pi/.xapp-monitor/xapp-monitor.cfg",
+            "content": "[default]\napp_name=Template\ninstall_dir=~/ProjectName\ndownload_dir=~/Downloads\n\n[mqtt]\n;host=mqtt.eclipseprojects.io\nhost=broker.hivemq.com\nport=1883\nkeep_alive=30\n; The below key/values create our base topic: client/location/family/id\nclient=gaylord\nlocation=palms\nzone=mail-room\nid=elevator1\n\n[health]\ninterval=15\n"
+        },
+        "app_config": {
+            "name": "/home/pi/ProjectName/Template/Template_Data/StreamingAssets/config.json",
+            "content": "{\n\ttimeout:5,\n\tgame_time:10,\n\tshow_mouse:true,\n\tday_start:\"8:00\",\n\tday_end:\"19:30\",\n\t\n\tcomment1: \"timeout is for getting back to attract\",\n\tcomment2: \"after game time, the game will time out to the end screen\",\n\tcomment3: \"if current system time is not between day_start and day_end, game will fade to black\"\n}\n\n"
+        },
+        "state": "offline",
+        "client_version": "0.1.0",
+        "app": {
+            "name": "Template",
+            "path": "Template",
+            "install_dir": "/home/pi/ProjectName",
+            "streaming_assets": "/home/pi/ProjectName/Template/Template_Data/StreamingAssets",
+            "config_file": "/home/pi/ProjectName/Template/Template_Data/StreamingAssets/config.json",
+            "startup_bat_file": "/home/pi/Startup.bat"
+        },
+        "app_version": "1.0"
+    },
+    "gaylord.palms.north-pole-workshop.meter1": {
+        "state": "online",
+        "client_version": "0.1.0",
+        "topic": {
+            "client": "gaylord",
+            "location": "palms",
+            "zone": "north-pole-workshop",
+            "id": "meter1",
+            "path": "gaylord/palms/north-pole-workshop/meter1"
+        },
+        "key": "gaylord.palms.north-pole-workshop.meter1",
+        "client_config": {
+            "name": "/home/pi/.xapp-monitor/xapp-monitor.cfg",
+            "content": "[default]\napp_name=Template\ninstall_dir=~/ProjectName\ndownload_dir=~/Downloads\n\n[mqtt]\nhost=broker.hivemq.com\n;host=mqtt.eclipseprojects.io\nport=1883\nkeep_alive=20\n; The below key/values create our base topic: client/location/family/id\nclient=gaylord\nlocation=palms\nzone=north-pole-workshop\nid=meter1\n\n[health]\ninterval=20\n"
+        },
+        "os": {
+            "name": "Raspbian GNU/Linux",
+            "version": "10",
+            "edition": "buster"
+        },
+        "platform": {
+            "system": "Linux",
+            "release": "5.10.52-v7l+",
+            "platform": "Linux-5.10.52-v7l+-armv7l-with-glibc2.28"
+        },
+        "network": {
+            "hostname": "raspberrypi4",
+            "ip_address": "192.168.1.102"
+        },
+        "python_version": "3.9.4",
+        "app": {
+            "name": "Template",
+            "path": "Template",
+            "install_dir": "/home/pi/ProjectName",
+            "streaming_assets": "/home/pi/ProjectName/Template/Template_Data/StreamingAssets",
+            "config_file": "/home/pi/ProjectName/Template/Template_Data/StreamingAssets/config.json",
+            "startup_bat_file": "/home/pi/Startup.bat"
+        },
+        "app_version": "1.0",
+        "app_config": {
+            "name": "/home/pi/ProjectName/Template/Template_Data/StreamingAssets/config.json",
+            "content": "{\n    \"inactivity_time\": 10,\n    \"game_time\": 60,\n    \"show_mouse\": true,\n    \"day_start\": \"8:00\",\n    \"day_end\": \"19:30\",\n    \"mqtt\": {\n        \"host\": \"mqtt.eclipseprojects.io\",\n        \"port\": 1883,\n        \"client\": \"gaylord\",\n        \"location\": \"florida\",\n        \"family\": \"elf-dance-party\",\n        \"id\": \"game1\"\n    },\n    \"foo\": \"bar\"\n}"
+        },
+        "cpu": {
+            "count": 4,
+            "percent": 0.9
+        },
+        "mem": {
+            "physical": 3.7,
+            "used": 0.45,
+            "avail": 3.25,
+            "usage": 12.2
+        },
+        "uptime": {
+            "boot": "2021-09-30 15:45:35 PM",
+            "uptime": "12 days, 21:07:33",
+            "seconds": 1112853
+        },
+        "app_running": false
+    },
+    "gaylord.palms.central-park.snow-ball-cannon1": {
+        "client_config": {
+            "name": "/Users/tsantor/.xapp-monitor/xapp-monitor.cfg",
+            "content": "[default]\n; App name (no .exe extension)\napp_name=Template\ninstall_dir=~/ProjectName\ndownload_dir=~/Downloads\n\n[mqtt]\n;host=mqtt.eclipseprojects.io\nhost=broker.hivemq.com\nport=1883\nkeep_alive=30\n; The below key/values create our base topic: client/location/family/id\nclient=gaylord\nlocation=palms\nzone=central-park\nid=snow-ball-cannon1\n\n[health]\ninterval=15\n"
+        },
+        "topic": {
+            "client": "gaylord",
+            "location": "palms",
+            "zone": "central-park",
+            "id": "snow-ball-cannon1",
+            "path": "gaylord/palms/central-park/snow-ball-cannon1"
+        },
+        "key": "gaylord.palms.central-park.snow-ball-cannon1",
+        "state": "online",
+        "client_version": "0.1.0",
+        "app_config": {
+            "name": "/Users/tsantor/ProjectName/Template/Template_Data/StreamingAssets/config.json",
+            "content": "{\n    \"inactivity_time\": 10,\n    \"game_time\": 60,\n    \"show_mouse\": true,\n    \"day_start\": \"8:00\",\n    \"day_end\": \"19:30\",\n    \"mqtt\": {\n        \"host\": \"mqtt.eclipseprojects.io\",\n        \"port\": 1883,\n        \"client\": \"gaylord\",\n        \"location\": \"florida\",\n        \"family\": \"central-park\",\n        \"id\": \"snow-ball-cannon1\"\n    }\n}"
+        },
+        "app": {
+            "name": "Template",
+            "path": "/Users/tsantor/ProjectName/Template/Template",
+            "install_dir": "/Users/tsantor/ProjectName",
+            "streaming_assets": "/Users/tsantor/ProjectName/Template/Template_Data/StreamingAssets",
+            "config_file": "/Users/tsantor/ProjectName/Template/Template_Data/StreamingAssets/config.json",
+            "startup_bat_file": "/Users/tsantor/Startup.bat"
+        },
+        "app_version": "1.0",
+        "os": {
+            "name": "macOS",
+            "version": "11.0.1",
+            "edition": null
+        },
+        "platform": {
+            "system": "Darwin",
+            "release": "20.1.0",
+            "platform": "macOS-11.0.1-x86_64-i386-64bit"
+        },
+        "network": {
+            "hostname": "home",
+            "ip_address": "192.168.0.141"
+        },
+        "python_version": "3.9.4",
+        "cpu": {
+            "count": 4,
+            "percent": 3.6
+        },
+        "mem": {
+            "physical": 16,
+            "used": 9.66,
+            "avail": 6.34,
+            "usage": 60.3
+        },
+        "uptime": {
+            "boot": "2021-06-30 20:21:20 PM",
+            "uptime": "104 days, 16:31:51",
+            "seconds": 9045111
+        },
+        "app_running": false
+    },
+    "gaylord.palms.central-park.christmas-carole1": {
+        "client_config": {
+            "name": "/Users/tsantor/.xapp-monitor/xapp-monitor.cfg",
+            "content": "[default]\napp_name=Template\ninstall_dir=~/ProjectName\ndownload_dir=~/Downloads\n\n[mqtt]\n;host=mqtt.eclipseprojects.io\nhost=broker.hivemq.com\nport=1883\nkeep_alive=20\n; The below key/values create our base topic: client/location/zone/id\nclient=gaylord\nlocation=palms\nzone=central-park\nid=christmas-carole1\n\n[health]\ninterval=15\n"
+        },
+        "topic": {
+            "client": "gaylord",
+            "location": "palms",
+            "zone": "central-park",
+            "id": "christmas-carole1",
+            "path": "gaylord/palms/central-park/christmas-carole1"
+        },
+        "key": "gaylord.palms.central-park.christmas-carole1",
+        "state": "online",
+        "client_version": "0.1.0",
+        "app_config": {
+            "name": "/Users/tsantor/ProjectName/Template/Template_Data/StreamingAssets/config.json",
+            "content": "{\n    \"timeout\": 5,\n    \"game_time\": 10,\n    \"show_mouse\": true,\n    \"day_start\": \"8:00\",\n    \"day_end\": \"19:30\",\n    \"comment1\": \"timeout is for getting back to attract\",\n    \"comment2\": \"after game time, the game will time out to the end screen\",\n    \"comment3\": \"if current system time is not between day_start and day_end, game will fade to black\",\n    \"foo\": \"bar\"\n}"
+        },
+        "app": {
+            "name": "Template",
+            "path": "/Users/tsantor/ProjectName/Template/Template",
+            "install_dir": "/Users/tsantor/ProjectName",
+            "streaming_assets": "/Users/tsantor/ProjectName/Template/Template_Data/StreamingAssets",
+            "config_file": "/Users/tsantor/ProjectName/Template/Template_Data/StreamingAssets/config.json",
+            "startup_bat_file": "/Users/tsantor/Startup.bat"
+        },
+        "app_version": "1.0",
+        "os": {
+            "name": "macOS",
+            "version": "11.4",
+            "edition": null
+        },
+        "platform": {
+            "system": "Darwin",
+            "release": "20.5.0",
+            "platform": "macOS-11.4-x86_64-i386-64bit"
+        },
+        "network": {
+            "hostname": "office19",
+            "ip_address": "192.168.1.246"
+        },
+        "python_version": "3.9.4",
+        "cpu": {
+            "count": 16,
+            "percent": 3.4
+        },
+        "mem": {
+            "physical": 16,
+            "used": 9.72,
+            "avail": 6.28,
+            "usage": 60.8
+        },
+        "uptime": {
+            "boot": "2021-07-20 16:54:24 PM",
+            "uptime": "84 days, 19:58:44",
+            "seconds": 7329524
+        },
+        "app_running": false
+    },
+    "gaylord.palms.toy-making-workshop.toy-quality-control1": {
+        "client_config": {
+            "name": "C:\\Users\\tsantor\\.xapp-monitor\\xapp-monitor.cfg",
+            "content": "[default]\napp_name=Template\ninstall_dir=~/ProjectName\ndownload_dir=~/Downloads\n\n[mqtt]\n;host=mqtt.eclipseprojects.io\nhost=broker.hivemq.com\nport=1883\nkeep_alive=20\n; The below key/values create our base topic: client/location/zone/id\nclient=gaylord\nlocation=palms\nzone=toy-making-workshop\nid=toy-quality-control1\n\n[health]\ninterval=15\n\n[logging]\nlevel=DEBUG"
+        },
+        "topic": {
+            "client": "gaylord",
+            "location": "palms",
+            "zone": "toy-making-workshop",
+            "id": "toy-quality-control1",
+            "path": "gaylord/palms/toy-making-workshop/toy-quality-control1"
+        },
+        "key": "gaylord.palms.toy-making-workshop.toy-quality-control1",
+        "os": {
+            "name": "Windows",
+            "version": "10",
+            "edition": "Core"
+        },
+        "platform": {
+            "system": "Windows",
+            "release": "10",
+            "platform": "Windows-10-10.0.19041-SP0"
+        },
+        "network": {
+            "hostname": "xstudios-helios300",
+            "ip_address": "192.168.1.85"
+        },
+        "python_version": "3.9.4",
+        "app": {
+            "name": "Template",
+            "path": "C:\\Users\\tsantor\\ProjectName\\Template\\Template.exe",
+            "install_dir": "C:\\Users\\tsantor\\ProjectName",
+            "streaming_assets": "C:\\Users\\tsantor\\ProjectName\\Template\\Template_Data\\StreamingAssets",
+            "config_file": "C:\\Users\\tsantor\\ProjectName\\Template\\Template_Data\\StreamingAssets\\config.json",
+            "startup_bat_file": "C:\\Users\\tsantor\\Startup.bat"
+        },
+        "app_version": "1.0",
+        "cpu": {
+            "count": 8,
+            "percent": 2.8
+        },
+        "mem": {
+            "physical": 15.89,
+            "used": 4.45,
+            "avail": 11.44,
+            "usage": 28
+        },
+        "uptime": {
+            "boot": "2021-10-12 16:38:22 PM",
+            "uptime": "20:14:55",
+            "seconds": 72895
+        },
+        "app_running": false,
+        "app_config": {
+            "name": "C:\\Users\\tsantor\\ProjectName\\Template\\Template_Data\\StreamingAssets\\config.json",
+            "content": "{\n    \"inactivity_time\": 10,\n    \"game_time\": 60,\n    \"show_mouse\": true,\n    \"day_start\": \"8:00\",\n    \"day_end\": \"19:30\",\n    \"mqtt\": {\n        \"host\": \"mqtt.eclipseprojects.io\",\n        \"port\": 1883,\n        \"client\": \"gaylord\",\n        \"location\": \"florida\",\n        \"family\": \"toy-making-workshop\",\n        \"id\": \"toy-quality-control1\"\n    },\n    \"foo\": \"bar\"\n}"
+        },
+        "state": "online",
+        "client_version": "0.1.0",
+        "startup_bat": {
+            "name": "C:\\Users\\tsantor\\Startup.bat",
+            "content": "@Echo off\n\n:: Example starter file...customize to fit your needs.\n\n:: timeout /t 10\n\n:: Kill Explorer - ensures we don't end up with a Windows taskbar over our app\n:: TASKKILL /F /IM \"explorer.exe\"\n\n:: Start python script (optional)\n:: START /MIN \"Manifest Ingest\" \"C:\\Python39\\Scripts\\manifest-ingest.exe\" --config=~/projname/config/manifest-ingest.cfg\n\n:: Start python script (optional)\nSTART /MIN \"Xapp Monitor\" \"C:\\Python39\\Scripts\\xapp-monitor.exe\" -v\n\ntimeout /t 3\n\n:: Start the main application fullscreen at the desired resolution\n\"C:\\Users\\%username%\\ProjectName\\Template\\Template.exe\" -screen-fullscreen 1 -screen-width 1920 -screen-height 1080\n\n:: Kill the Python script\n:: TASKKILL /FI \"WINDOWTITLE eq Manifest Ingest\"\n:: TASKKILL /FI \"WINDOWTITLE eq My Window\"\n\n:: Auto start explorer on app exit\n:: START \"explorer.exe\"\n\nExit"
+        }
+    },
+    "gaylord.palms.toy-making-workshop.meter2": {
+        "client_config": {
+            "name": "/home/pi/.xapp-monitor/xapp-monitor.cfg",
+            "content": "[default]\napp_name=Template\ninstall_dir=~/ProjectName\ndownload_dir=~/Downloads\n\n[mqtt]\nhost=broker.hivemq.com\n;host=mqtt.eclipseprojects.io\nport=1883\nkeep_alive=20\n; The below key/values create our base topic: client/location/family/id\nclient=gaylord\nlocation=palms\nzone=toy-making-workshop\nid=meter2\n\n[health]\ninterval=15\n"
+        },
+        "topic": {
+            "client": "gaylord",
+            "location": "palms",
+            "zone": "toy-making-workshop",
+            "id": "meter2",
+            "path": "gaylord/palms/toy-making-workshop/meter2"
+        },
+        "key": "gaylord.palms.toy-making-workshop.meter2",
+        "os": {
+            "name": "Raspbian GNU/Linux",
+            "version": "10",
+            "edition": "buster"
+        },
+        "platform": {
+            "system": "Linux",
+            "release": "5.10.60-v7+",
+            "platform": "Linux-5.10.60-v7+-armv7l-with-glibc2.28"
+        },
+        "network": {
+            "hostname": "raspberrypi",
+            "ip_address": "192.168.1.58"
+        },
+        "python_version": "3.9.4",
+        "app": {
+            "name": "Template",
+            "path": "Template",
+            "install_dir": "/home/pi/ProjectName",
+            "streaming_assets": "/home/pi/ProjectName/Template/Template_Data/StreamingAssets",
+            "config_file": "/home/pi/ProjectName/Template/Template_Data/StreamingAssets/config.json",
+            "startup_bat_file": "/home/pi/Startup.bat"
+        },
+        "app_version": "1.0",
+        "app_config": {
+            "name": "/home/pi/ProjectName/Template/Template_Data/StreamingAssets/config.json",
+            "content": "{\n    \"inactivity_time\": 10,\n    \"game_time\": 60,\n    \"show_mouse\": true,\n    \"day_start\": \"8:00\",\n    \"day_end\": \"19:30\",\n    \"mqtt\": {\n        \"host\": \"mqtt.eclipseprojects.io\",\n        \"port\": 1883,\n        \"client\": \"gaylord\",\n        \"location\": \"florida\",\n        \"family\": \"elf-dance-party\",\n        \"id\": \"game1\"\n    }\n}"
+        },
+        "state": "online",
+        "client_version": "0.1.0",
+        "cpu": {
+            "count": 4,
+            "percent": 1
+        },
+        "mem": {
+            "physical": 0.9,
+            "used": 0.32,
+            "avail": 0.58,
+            "usage": 35.8
+        },
+        "uptime": {
+            "boot": "2021-10-06 10:59:27 AM",
+            "uptime": "7 days, 1:53:40",
+            "seconds": 611620
+        },
+        "app_running": false
+    }
+}

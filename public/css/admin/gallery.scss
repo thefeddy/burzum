@@ -1,0 +1,16 @@
+#admin {
+    &.gallery {
+        img {
+            max-width: 50%;
+        }
+
+        progress {
+            transition: all 550ms ease-in-out;
+
+            opacity: 0;
+            &.is-showing {
+                opacity: 1;
+            }
+        }
+    }
+}

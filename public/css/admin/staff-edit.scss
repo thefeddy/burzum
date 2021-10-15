@@ -5,38 +5,7 @@
                 margin-top: 150px;
                 padding-bottom: 50px;
             }
-            .field {
-                margin-bottom: 25px;
-                .photo {
-                    img {
-                        display: block;
 
-                        width: 50%;
-                        height: 50%;
-
-                        object-fit: contain;
-                    }
-                }
-                label {
-                    font-family: 'Raleway';
-                    font-weight: 700;
-
-                    display: block;
-
-                    margin-bottom: 10px;
-
-                    color: #000;
-                }
-                button[type='submit'] {
-                    margin-top: 25px;
-                }
-                .ck-editor__editable_inline {
-                    min-height: 400px;
-                }
-                .ck-label {
-                    display: none;
-                }
-            }
 
             progress {
                 transition: all 550ms ease-in-out;

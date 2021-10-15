@@ -1,0 +1,54 @@
+{{#extend "title"}}Admin |{{/extend}}
+{{#extend "body_id"}}id="admin"{{/extend}}
+
+
+{{#extend "body_class"}}class="bar add"{{/extend}}
+
+{{#extend "body"}}
+<div class="container">
+    <h1>{{ item.name }}</h1>
+    <form>
+        <div class="row">
+            <div class="field col-3">
+                <label>Name</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="field col-3">
+                <label>Price</label>
+                <input type="number" name="price" required>
+            </div>
+
+            <div class="field col-3">
+                <label>Type</label>
+                <select name="type">
+                    <option value="food">food</option>
+                    <option value="drink">drink</option>
+                </select>
+            </div>
+
+            <div class="field col-3">
+                <label>Active</label>
+                <select name="type">
+                    <option value="active">active</option>
+                    <option value="inactive">inactive</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Description</label>
+                <textarea name="description" id="editor"></textarea>
+            </div>
+        </div>
+
+
+        <button type="submit">Submit</button>
+        <div class="message"></div>
+        <progress id="file" value="0" max="100"></progress>
+
+    </form>
+</div>
+{{/extend}}
+{{#extend "js"}}
+<script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+<script src="/js/burzum/bar/add.js"></script>
+{{/extend}}

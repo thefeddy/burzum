@@ -1,0 +1,54 @@
+{{#extend "title"}}Admin |{{/extend}}
+{{#extend "body_id"}}id="admin"{{/extend}}
+
+
+{{#extend "body_class"}}class="events edit"{{/extend}}
+
+{{#extend "body"}}
+<div class="container">
+    <h1>{{ moment event.date "MMMM Do, YYYY" }}</h1>
+    <form>
+        <input id="id" type="hidden" name="id" value="{{ event.id }}">
+        <input id="staff_id" type="hidden" name="staff_id" value="{{ event.staff.id }}">
+        <div class="row">
+            <div class="field col-3">
+                <label>Date</label>
+                <input id="date" type="date" name="date" value="{{ moment event.date "YYYY-MM-DD" }}" required>
+            </div>
+        </div>
+
+        <h2>Schedule</h2>
+        <i class="add fal fa-plus-square"></i>
+        <div id="schedule">
+            {{#each event.schedule}}
+            <div class="schedule" data-id="{{ id }}">
+                <div class="row">
+                    <div class="field col-3">
+                        <label>Name</label>
+                        <input type="text" name="name" value="{{ name }}" required>
+                    </div>
+                    <div class="field col-3">
+                        <label>Start</label>
+                        <input type="time" name="start" value="{{ start }}" required>
+                    </div>
+                    <div class="field col-3">
+                        <label>End</label>
+                        <input type="time" name="end" value="{{ end }}" required>
+                    </div>
+                    <div class="field">
+                        <label>Description</label>
+                        <textarea name="description" class="description">{{ description }}</textarea>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <button type="submit">Submit</button>
+        <div class="message"></div>
+    </form>
+</div>
+{{/extend}}
+{{#extend "js"}}
+<script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+<script src="/js/burzum/events/edit.js"></script>
+{{/extend}}

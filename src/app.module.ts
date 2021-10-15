@@ -2,6 +2,7 @@ import { Module, HttpModule } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MulterModule } from '@nestjs/platform-express';
+import { APP_FILTER } from '@nestjs/core';
 
 import { RouterModule, Routes } from 'nest-router';
 
@@ -29,9 +30,15 @@ import { Rooms } from './rooms/rooms.entity';
 import { Room } from './room/room.entity';
 
 import { Bookings } from './bookings/bookings.entity';
-import { APP_FILTER } from '@nestjs/core';
-import { NotFoundExceptionFilter } from './common/filters/not-found';
 
+import { ScheduleModule } from './schedule/schedule.module';
+import { Schedule } from './schedule/schedule.entity';
+
+import { GalleryModule } from './gallery/gallery.module';
+import { Gallery } from './gallery/gallery.entity';
+
+
+import { NotFoundExceptionFilter } from './common/filters/not-found';
 
 const routes: Routes = [
     {
@@ -49,6 +56,10 @@ const routes: Routes = [
     {
         path: '/events',
         module: EventsModule,
+    },
+    {
+        path: '/gallery',
+        module: GalleryModule
     },
     {
         path: '/admin',
@@ -74,7 +85,7 @@ const routes: Routes = [
                 username: process.env.TYPEORM_USERNAME,
                 password: process.env.TYPEORM_PASSWORD,
                 database: process.env.TYPEORM_DATABASE,
-                entities: [Staff, Events, Contests, Bar, Rooms, Room, Bookings, Contestants],
+                entities: [Staff, Events, Contests, Bar, Rooms, Room, Bookings, Contestants, Schedule, Gallery],
                 synchronize: true,
             }),
         }),
@@ -91,6 +102,8 @@ const routes: Routes = [
         HttpModule,
         EventsModule,
         DiscordModule,
+        ScheduleModule,
+        GalleryModule
 
     ],
     controllers: [],

@@ -1,0 +1,44 @@
+{{#extend "title"}}
+Gallery |
+{{/extend}}
+
+{{#extend "body_id"}}
+id="gallery"
+{{/extend}}
+{{#extend "body"}}
+<header>
+    <h1>Gallery</h1>
+    <span></span>
+</header>
+
+<section id="gallery">
+    <div class="container">
+        <div class="row">
+            {{#each gallery}}
+            <div class="item">
+                <div class="photo" style="background-image:url({{ photo }}">
+                    <div class="overlay">
+                        <div class="author">{{ author }}</div>
+                        <div class="created">{{ moment created "MMMM Do YYYY" }}</div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+{{/extend}}
+
+{{#extend "js"}}
+<script src="https://unpkg.com/packery@2/dist/packery.pkgd.min.js"></script>
+<script>
+
+    var elem = document.querySelector('#gallery .row');
+    var pckry = new Packery(elem, {
+        // options
+        itemSelector: '.item',
+        gutter: 0
+    });
+
+</script>
+{{/extend}}

@@ -6,6 +6,7 @@ import { join } from 'path';
 import * as exphbs from 'express-handlebars';
 import * as passport from 'passport';
 import * as session from 'express-session';
+import * as moment from 'moment';
 
 import { AppModule } from './app.module';
 
@@ -46,8 +47,10 @@ async function bootstrap() {
         },
         select: (selected, options) => {
             return options.fn(this).replace(new RegExp(`value="${selected}"`), '$& selected="selected"');
+        },
+        moment: (date: string, format: string) => {
+            return moment(date).format(format);
         }
-
     };
 
     const hbs = exphbs.create({

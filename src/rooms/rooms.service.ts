@@ -16,12 +16,4 @@ export class RoomsService {
     async findAll(): Promise<Rooms[]> {
         return await this.imagesRepository.find();
     }
-
-
-    async add(image: Rooms): Promise<Rooms> {
-        const { id } = image;
-        return;
-        //return await this.imagesRepository.save({ ...image, statusCode: HttpStatus.ACCEPTED });
-    }
-
 }

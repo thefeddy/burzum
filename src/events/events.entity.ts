@@ -6,26 +6,19 @@ import {
     JoinColumn,
     JoinTable,
     OneToMany,
-    ManyToOne
+    ManyToOne,
+    ManyToMany
 } from 'typeorm';
 
 import { EventRO } from './events.ro';
 import { Contests } from '../contests/contests.entity';
 import { Staff } from '../staff/staff.entity';
-import { Bar } from '../bar/bar.entity';
+import { Schedule } from '../schedule/schedule.entity';
 
 @Entity()
 export class Events {
     @PrimaryGeneratedColumn()
     id: number;
-
-    @Column({
-        name: 'name',
-        type: 'varchar',
-        nullable: true,
-        length: 255
-    })
-    name: string;
 
     @Column({
         name: 'date',
@@ -35,21 +28,11 @@ export class Events {
     })
     date: Date;
 
-    @OneToMany(() => Staff, staff => staff.id)
-    public staff: Staff[];
+    @OneToMany(() => Schedule, (schedule) => schedule.event, { cascade: true, onUpdate: 'CASCADE' })
+    schedule: Schedule[];
 
-    @ManyToOne(() => Staff)
+    @ManyToOne(() => Staff, staff => staff.id)
     @JoinColumn()
-    dj: number;
+    staff: Staff;
 
-    @ManyToOne(() => Contests)
-    @JoinColumn()
-    contest: number;
-
-    toResponseObject(): EventRO {
-        const { id, name, date, dj, contest } = this;
-        const responseObject: EventRO = { id, name, date, dj, contest };
-
-        return responseObject;
-    }
 }

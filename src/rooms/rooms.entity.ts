@@ -19,7 +19,6 @@ export class Rooms {
         name: 'name',
         type: 'varchar',
         nullable: true,
-        length: 255
     })
     name: string;
 
@@ -27,32 +26,31 @@ export class Rooms {
         name: 'description',
         type: 'varchar',
         nullable: true,
-        length: 255
     })
     description: string;
 
     @Column({
         name: 'price',
         type: 'int4',
-        nullable: true
     })
     price: number;
 
     @Column({
         name: 'active',
         type: 'varchar',
-        nullable: true,
-        length: 255
+        default: () => "true"
     })
     active: string;
 
-    @ManyToOne(() => Room)
-    @JoinColumn()
-    type: number;
+    @Column({
+        name: 'photo',
+        type: 'varchar',
+    })
+    photo: string;
 
     toResponseObject(): RoomsRO {
-        const { id, name, description, price, type, active } = this;
-        const responseObject: RoomsRO = { id, name, description, price, type, active };
+        const { id, name, description, price, active, photo } = this;
+        const responseObject: RoomsRO = { id, name, description, price, active, photo };
 
         return responseObject;
     }

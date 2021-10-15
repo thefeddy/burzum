@@ -1,9 +1,9 @@
-import { StaffIdRO } from '../staff/staff.ro';
+
+import { Schedule } from '../schedule/schedule.entity';
+import { Staff } from '../staff/staff.entity';
 
 export class EventRO {
     id: number;
-    name: string;
     date: Date;
-    dj: number;
-    contest: number;
+    staff: Staff;
 }

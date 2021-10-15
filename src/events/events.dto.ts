@@ -1,8 +1,9 @@
+
+import { Schedule } from '../schedule/schedule.entity';
+import { Staff } from '../staff/staff.entity';
 export class EventsDTO {
     readonly id: number;
-    readonly name: string;
     readonly date: Date;
-    readonly dj: number;
+    readonly staff: Staff;
 
-    readonly contest: number;
 }

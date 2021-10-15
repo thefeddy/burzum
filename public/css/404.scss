@@ -1,0 +1,14 @@
+#four-oh-four {
+    height: calc(100vh - 100px);
+    main {
+        display: grid;
+
+        height: 100%;
+
+        place-content: center;
+
+        .overlay-bg {
+            background-image: url(../../img/bg-404.jpg);
+        }
+    }
+}

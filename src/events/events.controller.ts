@@ -6,9 +6,12 @@ import { EventsService } from './events.service';
 
 @Controller('')
 export class EventsController {
-    constructor(private http: HttpService) { }
+    constructor(private eventsService: EventsService) { }
 
     @Get('/')
     @Render('events/index')
-    index(@Res() res: Response) { }
+    async index(@Res() res: Response) {
+        const events = await this.eventsService.findThisWeeks();
+        return { events }
+    }
 }

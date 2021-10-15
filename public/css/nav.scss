@@ -1,43 +1,49 @@
 nav {
-    position: sticky;
+    position: fixed;
     z-index: 9999;
     top: 0;
 
     display: flex;
     flex-direction: row;
 
-    height: 50px;
-    padding: 0 20px;
+    width: 100vw;
+    padding-top: 21px;
 
-    border-bottom: 1px solid #af4a1f;
-    background: rgba(0, 0, 0, 0.8);
+    transition: opacity 550ms ease-in-out;
 
     align-items: center;
+    justify-content: center;
 
     ul {
         display: flex;
 
-        margin: 0;
-        margin-left: auto;
+        width: 75%;
+        margin: 0 ;
         padding: 0;
 
         list-style: none;
 
-
+        align-items: center;
+        justify-content: space-around;
         li {
-            margin-left: 25px;
             a {
-                font-family: 'Letterboard';
-                font-size: 22px;
+                font-family: 'Bebas Neue', cursive;
+                font-size: 30px;
                 line-height: 1;
 
                 transition: color 550ms ease-in-out;
+                text-decoration: none;
 
                 color: #fff;
+                text-shadow: -1px 5px 28.159px rgba(0, 0, 0, 0.60);
                 &:hover,
                 &.current {
-                    color: #af4a1f;
+                    color: #81c8ff;
                 }
+            }
+
+            .logo {
+                display: block;
             }
         }
     }

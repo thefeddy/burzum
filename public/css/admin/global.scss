@@ -83,3 +83,37 @@ aside {
         background: #58616e;
     }
 }
+form {
+    .field {
+        margin-bottom: 25px;
+        .photo {
+            img {
+                display: block;
+
+                width: 50%;
+                height: 50%;
+
+                object-fit: contain;
+            }
+        }
+        label {
+            font-family: 'Raleway';
+            font-weight: 700;
+
+            display: block;
+
+            margin-bottom: 10px;
+
+            color: #000;
+        }
+        button[type='submit'] {
+            margin-top: 25px;
+        }
+        .ck-editor__editable_inline {
+            min-height: 200px;
+        }
+        .ck-label {
+            display: none;
+        }
+    }
+}

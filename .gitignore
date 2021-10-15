@@ -37,3 +37,4 @@ lerna-debug.log*
 ngrok.exe
 
 /public/uploads/*
+/assets/*

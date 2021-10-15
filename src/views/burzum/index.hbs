@@ -1,14 +1,40 @@
-{{#extend "body_id"}}
-id="home"
-{{/extend}}
+{{#extend "body_id"}}id="home"{{/extend}}
 {{#extend "body"}}
-<div class="overlay"></div>
 <header>
-    <h1>Burzum</h1>
-    <span>An Excalibur Night Club | Lavender Beds | W22 | P3 </span>
-    <time>Thursday - Saturday : 1 AM to 4 AM EST</time>
+    <ul id="social">
+        <li>
+            <a href="https://twitter.com/BurzumClub" target="_blank"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+            <a href="http://discord.gg/Z9pSRKk2vE" target="_blank"><i class="fab fa-discord"></i></a>
+        </li>
+    </ul>
+
+    <img src="/img/header/featured-dancer.png" class="featured">
+    <h1>Club Burzum</h1>
+    <div id="para">
+        <div id="dots" data-depth="0.5"></div>
+        <div id="pluses" data-depth="0.8"></div>
+    </div>
+    <canvas id="smoke"></canvas>
 </header>
+<section id="info">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="times">
+                    <h2>Thurs - sat / 1 - 4am EST</h2>
+                    <span>Primal: Excalibur / Lavendar Beds W22 P3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {{/extend}}
 
 {{#extend "js"}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js"></script>
+<script src="js/burzum/burzum.js"></script>
+
 {{/extend}}

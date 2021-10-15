@@ -1,0 +1,68 @@
+{{#extend "title"}}Admin |{{/extend}}
+{{#extend "body_id"}}id="admin"{{/extend}}
+
+
+{{#extend "body_class"}}class="staff edit"{{/extend}}
+
+{{#extend "body"}}
+<div class="container">
+    <form>
+        <input type="hidden" name="id" value="{{ staff.id }}">
+        <div class="row">
+            <div class="preview">
+                <h1>Preview</h1>
+                <div class="preview-slide" style="background-image:url({{ staff.photo }});">
+                    <div class="overlay"></div>
+                    <div class="name">{{ staff.name }}</div>
+                    <div class="role">{{ staff.role }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="field col-3">
+                <label>Photo</label>
+                <input type="file" name="photo" value="{{ staff.photo }}">
+            </div>
+            <div class="field col-3">
+                <label>Name</label>
+                <input type="text" name="name" value="{{ staff.name }}">
+            </div>
+            <div class="field col-3">
+                <label>Role</label>
+                <select name="role">
+                    {{#select staff.role}}
+                    <option value="dancer">Dancer</option>
+                    <option value="bouncer">Bouncer</option>
+                    <option value="dj">DJ</option>
+                    <option value="management">Management</option>
+                    <option value="bartender">Bartender</option>
+                    {{/select}}
+                </select>
+            </div>
+            <div class="field col-3">
+                <label>Active</label>
+                <select name="active">
+                    {{#select staff.active}}
+                    <option value="true">Active</option>
+                    <option value="false">Inactive</option>
+                    {{/select}}
+                </select>
+            </div>
+            <div class="field">
+                <label>Description</label>
+                <textarea name="description" id="editor">{{ staff.description }}</textarea>
+            </div>
+        </div>
+
+
+        <button type="submit">Submit</button>
+        <div class="message"></div>
+        <progress id="file" value="0" max="100"></progress>
+
+    </form>
+</div>
+{{/extend}}
+{{#extend "js"}}
+<script src="https://cdn.ckeditor.com/ckeditor5/29.2.0/classic/ckeditor.js"></script>
+<script src="/js/burzum/staff/edit.js"></script>
+{{/extend}}
