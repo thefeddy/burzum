@@ -1,0 +1,46 @@
+.djs {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    .dates {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 59px;
+        line-height: 59px;
+
+        display: block;
+
+        margin-top: 70px;
+        padding: 17px 12px;
+
+        text-align: center;
+        text-transform: uppercase;
+
+        color: #dff3f6;
+        border: 3px solid #fff;
+    }
+    img {
+        margin-top: -70px;
+    }
+}
+
+
+
+#dj-one {
+    height: 471px;
+
+    background: url(../img/bg-dj-1.jpg) no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+#dj-two {
+    height: 471px;
+
+    background: url(../img/bg-dj-2.jpg) no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}

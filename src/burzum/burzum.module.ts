@@ -8,9 +8,17 @@ import { BarService } from '../bar/bar.service';
 
 import { Gallery } from '../gallery/gallery.entity';
 import { GalleryService } from '../gallery/gallery.service';
+
+import { Staff } from '../staff/staff.entity';
+import { StaffService } from '../staff/staff.service';
 @Module({
-    imports: [TypeOrmModule.forFeature([Bar]), TypeOrmModule.forFeature([Gallery]), HttpModule],
-    providers: [BarService, GalleryService],
+    imports: [
+        HttpModule,
+        TypeOrmModule.forFeature([Bar]),
+        TypeOrmModule.forFeature([Gallery]),
+        TypeOrmModule.forFeature([Staff]),
+    ],
+    providers: [BarService, GalleryService, StaffService],
     controllers: [BurzumController],
 })
 

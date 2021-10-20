@@ -17,7 +17,7 @@ import { StaffModule } from './staff/staff.module';
 import { EventsModule } from './events/events.module';
 import { AdminModule } from './admin/admin.module';
 import { AuthModule } from './auth/auth.module';
-
+import { MenuModule } from './menu/menu.module';
 /* Entities */
 import { Staff } from './staff/staff.entity';
 import { Events } from './events/events.entity';
@@ -37,6 +37,7 @@ import { Schedule } from './schedule/schedule.entity';
 import { GalleryModule } from './gallery/gallery.module';
 import { Gallery } from './gallery/gallery.entity';
 
+import { Global } from './global/global.entity';
 
 import { NotFoundExceptionFilter } from './common/filters/not-found';
 
@@ -46,8 +47,8 @@ const routes: Routes = [
         module: BurzumModule,
     },
     {
-        path: '/bar',
-        module: BarModule,
+        path: '/menu',
+        module: MenuModule,
     },
     {
         path: '/staff',
@@ -85,7 +86,7 @@ const routes: Routes = [
                 username: process.env.TYPEORM_USERNAME,
                 password: process.env.TYPEORM_PASSWORD,
                 database: process.env.TYPEORM_DATABASE,
-                entities: [Staff, Events, Contests, Bar, Rooms, Room, Bookings, Contestants, Schedule, Gallery],
+                entities: [Staff, Events, Contests, Bar, Rooms, Room, Bookings, Contestants, Schedule, Gallery, Global],
                 synchronize: true,
             }),
         }),
@@ -103,7 +104,8 @@ const routes: Routes = [
         EventsModule,
         DiscordModule,
         ScheduleModule,
-        GalleryModule
+        GalleryModule,
+        MenuModule
 
     ],
     controllers: [],

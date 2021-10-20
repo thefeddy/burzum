@@ -47,6 +47,16 @@ const staff = {
             document.querySelector('.preview .role').innerHTML = event.target.value;
         });
 
+        document.querySelector('select[name="role"]').addEventListener('change', (event) => {
+            const role = event.target.value;
+            document.querySelectorAll('.row').forEach(row => row.classList.remove('is-showing'));
+
+            if (document.querySelector(`.${role}`)) {
+                document.querySelector(`.${role}`).classList.add('is-showing');
+            }
+
+        });
+
     }
 }
 

@@ -1,5 +1,5 @@
-import { Controller, Get, Render, Res, HttpService, Next, Req, UseGuards, Post, Request, Body, Param, Put, UseInterceptors, UploadedFile, HttpStatus } from '@nestjs/common';
-import { AnyFilesInterceptor, FileInterceptor } from '@nestjs/platform-express';
+import { Controller, Get, Render, Res, HttpService, Next, Req, UseGuards, Post, Request, Body, Param, Put, UseInterceptors, UploadedFile, HttpStatus, UploadedFiles } from '@nestjs/common';
+import { AnyFilesInterceptor, FileFieldsInterceptor, FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
 
 import { json, Response } from 'express';
 import { extname } from 'path';
@@ -83,16 +83,41 @@ export class AdminController {
 
     @UseGuards(RolesGuard)
     @Put('/staff/')
-    @UseInterceptors(FileInterceptor('photo', {
-        storage: diskStorage({
-            destination: './public/uploads/',
-            filename: editFileName,
-        }),
-        fileFilter: imageFileFilter,
-    }))
-    async updateStaff(@Res() res: Response, @Body() staff: any, @UploadedFile() file): Promise<any> {
-        if (file) {
-            staff.photo = `/uploads/${file.filename}`;
+    @UseInterceptors(FileFieldsInterceptor([
+        {
+            name: 'photo',
+            maxCount: 1,
+        },
+        {
+            name: 'cutout',
+            maxCount: 1,
+        },
+        {
+            name: 'logo',
+            maxCount: 1,
+        },
+    ],
+        {
+            storage: diskStorage({
+                destination: './public/uploads/',
+                filename: editFileName,
+            }),
+            fileFilter: imageFileFilter,
+        })
+    )
+    async updateStaff(@Res() res: Response, @Body() staff: any, @UploadedFiles() files): Promise<any> {
+        if (files) {
+            if (files['photo']) {
+                staff.photo = `/uploads/${files['photo'][0].filename}`;
+            }
+
+            if (files['cutout']) {
+                staff.cutout = `/uploads/${files['cutout'][0].filename}`;
+            }
+
+            if (files['logo']) {
+                staff.logo = `/uploads/${files?.['logo'][0].filename}`;
+            }
         }
 
         const user = await this.staffService.update(staff);
@@ -101,17 +126,42 @@ export class AdminController {
 
     @UseGuards(RolesGuard)
     @Post('/staff/add')
-    @UseInterceptors(FileInterceptor('photo', {
-        storage: diskStorage({
-            destination: './public/uploads/',
-            filename: editFileName,
-        }),
-        fileFilter: imageFileFilter,
-    }))
-    async addStaff(@Res() res: Response, @Body() staff: any, @UploadedFile() file): Promise<any> {
+    @UseInterceptors(
+        FileFieldsInterceptor([
+            {
+                name: 'photo',
+                maxCount: 1,
+            },
+            {
+                name: 'cutout',
+                maxCount: 1,
+            },
+            {
+                name: 'logo',
+                maxCount: 1,
+            },
+        ],
+            {
+                storage: diskStorage({
+                    destination: './public/uploads/',
+                    filename: editFileName,
+                }),
+                fileFilter: imageFileFilter,
+            })
+    )
+    async addStaff(@Res() res: Response, @Body() staff: any, @UploadedFiles() files): Promise<any> {
+        if (files) {
+            if (files['photo']) {
+                staff.photo = `/uploads/${files['photo'][0].filename}`;
+            }
 
-        if (file) {
-            staff.photo = `/uploads/${file.filename}`;
+            if (files['cutout']) {
+                staff.cutout = `/uploads/${files['cutout'][0].filename}`;
+            }
+
+            if (files['logo']) {
+                staff.logo = `/uploads/${files?.['logo'][0].filename}`;
+            }
         }
 
         const user = await this.staffService.add(staff);

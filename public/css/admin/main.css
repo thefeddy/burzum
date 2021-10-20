@@ -29386,6 +29386,13 @@ form .field {
 #admin.staff #staff tr:nth-child(odd) {
   background-color: rgba(249, 250, 251, 0.96); }
 
+#admin.staff .dj,
+#admin.staff .dancer {
+  display: none; }
+  #admin.staff .dj.is-showing,
+  #admin.staff .dancer.is-showing {
+    display: flex; }
+
 #admin.staff .dataTable-dropdown label {
   color: #000; }
 

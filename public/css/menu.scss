@@ -1,0 +1,117 @@
+#menu {
+    header {
+        position: relative;
+
+        overflow: hidden;
+
+        width: 100%;
+        height: 100vh;
+
+        background: url(../img/bg-menu.jpg) no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        background-size: cover;
+        h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 240px;
+
+            position: absolute;
+            z-index: 16;
+            bottom: 120px;
+            left: 15%;
+
+            width: 100%;
+
+            user-select: none;
+
+            color: rgba(0, 0, 0, 0.11);
+
+            -webkit-text-stroke-color: #fff;
+            -webkit-text-stroke-width: 1px;
+        }
+        #bartenders {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    #food-drinks {
+        position: relative;
+
+        background: rgb(48,200,205);
+        background: linear-gradient(139deg, rgb(48, 200, 205) 0%, rgb(48, 126, 164) 40%, rgb(51, 76, 140) 60%, rgb(50, 14, 104) 100%);
+        .row {
+            justify-content: space-between;
+        }
+        h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 47px;
+
+            display: grid;
+
+            width: 385px;
+            height: 98px;
+            margin: -49px auto 100px auto;
+
+            color: #fff;
+            background: #008ed5;
+
+            place-content: center;
+        }
+
+        .menu {
+            &:first-child {
+                .items {
+                    position: relative;
+                    &::after {
+                        position: absolute;
+                        top: -25px;
+                        right: -25%;
+
+                        display: block;
+
+                        width: 3px;
+                        height: calc(100% + 50px);
+
+                        content: '';
+
+                        background: #12012b;
+                    }
+                }
+            }
+        }
+
+        .item {
+            width: 100%;
+            margin-bottom: 25px;;
+            h3 {
+                font-family: 'Bebas Neue', cursive;
+                font-size: 40px;
+
+                display: flex;
+
+                color: #fff;
+                border-bottom: 2px solid #fff;
+
+                align-items: flex-end;
+                justify-content: space-between;
+                span {
+                    font-size: 32px;
+                    em {
+                        font-size: 19px;
+                        font-style: normal;
+
+                        margin-left: 5px;
+                    }
+                }
+            }
+            p {
+                font-family: 'Bebas Neue', cursive;
+                font-size: 22px;
+
+                color: #fff;
+            }
+        }
+    }
+}

@@ -1,5 +1,6 @@
 // rewrite 
 let burzum = {
+
     init: () => {
         var scene = document.getElementById('para');
         var parallaxInstance = new Parallax(scene);
@@ -12,8 +13,7 @@ let burzum = {
             const zIndex = Math.floor(Math.random() * 40)
 
             const opacity = Math.random() * 1;
-            console.log(opacity)
-            document.querySelector('#pluses').innerHTML += `<div class="plus" style="left:${posx}px; top:${posy}px; z-index:${zIndex}; opacity:${opacity};"></div>`
+            document.querySelector('#pluses').innerHTML += `<div class="plus" style="left:${posx}px; top:${posy}px; z-index:${zIndex}; opacity:${opacity};"></div>`;
         }
 
         for (let i = 0; i < 75; i += 1) {
@@ -24,9 +24,63 @@ let burzum = {
 
             const opacity = Math.random() * 1;
 
-            document.querySelector('#dots').innerHTML += `<div class="dot" style="left:${posx}px; top:${posy}px; z-index:${zIndex}; opacity:${opacity};"></div>`
+            document.querySelector('#dots').innerHTML += `<div class="dot" style="left:${posx}px; top:${posy}px; z-index:${zIndex}; opacity:${opacity};"></div>`;
         }
 
+        setTimeout(() => {
+            document.querySelector('#social').classList.add('is-showing');
+        }, 500);
+
+        setTimeout(() => {
+            document.querySelectorAll('.pagination li')[0].classList.add('selected');
+            document.querySelectorAll(`#featured .staff`)[0].classList.add('selected');
+        }, 1000);
+
+        document.querySelectorAll('.pagination li').forEach((page, index) => page.addEventListener('click', (event) => {
+
+            document.querySelectorAll('.pagination li').forEach(page => page.classList.remove('selected'));
+            event.target.classList.add('selected');
+
+            document.querySelectorAll(`#featured .staff`).forEach(staff => staff.classList.remove('selected'));
+            setTimeout(() => {
+                document.querySelectorAll(`#featured .staff`)[index].classList.add('selected');
+            }, 400);
+        }));
+
+    },
+    header: {
+        camera: null,
+        scene: null,
+        renderer: null,
+        geometry: null,
+        material: null,
+        mesh: null,
+        clock: null,
+        delta: null,
+        init: () => {
+            const canvReference = document.getElementById('smoke');
+            burzum.header.renderer = new THREE.WebGLRenderer({
+                antialias: true,
+                canvas: canvReference,
+                alpha: true
+            });
+            burzum.header.renderer.setSize(window.innerWidth, window.innerHeight);
+
+            burzum.header.scene = new THREE.Scene();
+            burzum.header.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
+            burzum.header.camera.position.z = 1000;
+            burzum.header.scene.add(burzum.header.camera);
+
+        },
+        animate: () => {
+
+        },
+        evolveSmoke: () => {
+
+        },
+        render: () => {
+
+        }
     }
 }
 

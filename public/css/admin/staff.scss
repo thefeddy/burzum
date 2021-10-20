@@ -21,6 +21,13 @@
                 }
             }
         }
+        .dj,
+        .dancer {
+            display: none;
+            &.is-showing {
+                display: flex;
+            }
+        }
         .dataTable-dropdown {
             label {
                 color: #000;

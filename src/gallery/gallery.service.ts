@@ -39,7 +39,6 @@ export class GalleryService {
     };
 
     async findWithLimit(limit: number): Promise<Gallery[]> {
-        console.log(limit)
         return await this.galleryRepository.find({
             take: limit,
             order: { created: 'ASC' }

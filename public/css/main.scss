@@ -24,8 +24,9 @@
 @import '404';
 
 // Pages
-@import 'home';
-@import 'bar';
+@import 'home/main';
+
+@import 'menu';
 @import 'staff';
 @import 'events';
 @import 'gallery';

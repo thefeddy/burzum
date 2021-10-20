@@ -20,12 +20,27 @@
         </div>
         <div class="row">
             <div class="field col-3">
+                <label>Name</label>
+                <input type="text" name="name" value="{{ staff.name }}">
+            </div>
+
+            <div class="field col-3">
                 <label>Photo</label>
                 <input type="file" name="photo" value="{{ staff.photo }}">
             </div>
+
             <div class="field col-3">
-                <label>Name</label>
-                <input type="text" name="name" value="{{ staff.name }}">
+                <label>Featured</label>
+                <select name="featured">
+                    {{#select staff.featured}}
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                    {{/select}}
+                </select>
+            </div>
+            <div class="field col-3">
+                <label>Header Cutout</label>
+                <input type="file" name="cutout" value="{{ staff.cutout }}">
             </div>
             <div class="field col-3">
                 <label>Role</label>
@@ -39,6 +54,7 @@
                     {{/select}}
                 </select>
             </div>
+
             <div class="field col-3">
                 <label>Active</label>
                 <select name="active">
@@ -48,6 +64,23 @@
                     {{/select}}
                 </select>
             </div>
+
+        </div>
+
+
+        <div class="row dj">
+            <div class="field col-3">
+                <label>Stream</label>
+                <input type="text" name="stream" value="{{ staff.stream }}">
+            </div>
+
+            <div class="field col-3">
+                <label>Logo</label>
+                <input type="file" name="logo" value="{{ staff.logo }}">
+            </div>
+        </div>
+
+        <div class="row">
             <div class="field">
                 <label>Description</label>
                 <textarea name="description" id="editor">{{ staff.description }}</textarea>

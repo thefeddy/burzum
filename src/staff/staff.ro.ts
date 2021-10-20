@@ -11,6 +11,9 @@ export class StaffRO {
     stream: string;
     description: string;
     superuser: number;
+    logo: string;
+    featured: string;
+    cutout: string;
 }
 
 export class StaffIdRO {

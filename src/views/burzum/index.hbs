@@ -10,15 +10,41 @@
         </li>
     </ul>
 
-    <img src="/img/header/featured-dancer.png" class="featured">
+    <div id="times">
+        <p>Thursday Nights</p>
+        <p>Friday Nights</p>
+        <p>Saturday Nights</p>
+    </div>
+    <div id="featured">
+        {{#each featured}}
+        <div class="staff">
+            <div class="cutout">
+                {{!-- <img src="{{ cutout }}" class="featured"> --}}
+                <video src="videos/Comp 1_5.webm" loop autoplay muted playinline></video>
+            </div>
+            <div class="details">
+                <div class="role">Featured {{ role }}</div>
+                <div class="bar"></div>
+                <div class="name">{{ name }}</div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
     <h1>Club Burzum</h1>
     <div id="para">
         <div id="dots" data-depth="0.5"></div>
         <div id="pluses" data-depth="0.8"></div>
     </div>
     <canvas id="smoke"></canvas>
+
+    <ul class="pagination">
+        {{#each featured}}
+        <li></li>
+        {{/each}}
+    </ul>
 </header>
-<section id="info">
+{{!-- <section id="info">
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-6">
@@ -26,9 +52,37 @@
                     <h2>Thurs - sat / 1 - 4am EST</h2>
                     <span>Primal: Excalibur / Lavendar Beds W22 P3</span>
                 </div>
+
+                <div class="gallery">
+                    {{#each photos}}
+                    <div class="item">
+                        <div class="photo" style="background-image:url({{ photo }}">
+                            <div class="overlay">
+                                <div class="author">{{ author }}</div>
+                                <div class="created">{{ moment created "MMMM Do YYYY" }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <h3>The<br>Finest<br>Selection</h3>
             </div>
         </div>
     </div>
+</section> --}}
+<section id="dj-one" class="djs">
+    <div class="dates">
+        Thur/<br>Fri
+    </div>
+    <img src="/img/logos/scrye.png">
+</section>
+<section id="dj-two" class="djs">
+    <div class="dates">
+        Satur<br>Day
+    </div>
+    <img src="/img/logos/dj-blue-pixie.png">
 </section>
 {{/extend}}
 

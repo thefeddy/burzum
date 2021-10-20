@@ -26,6 +26,13 @@ export class StaffService {
         });
     }
 
+    async findAllActiveFeatured(): Promise<Staff[]> {
+        return await this.staffRepository.find({
+            where: { active: 'true', featured: 'true' },
+            order: { id: 'ASC' }
+        });
+    }
+
     async findBartenders(): Promise<Staff[]> {
         return await this.staffRepository.find({
             where: {

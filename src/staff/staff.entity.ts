@@ -48,7 +48,6 @@ export class Staff {
     @Column({
         name: 'name',
         type: 'varchar',
-        nullable: true,
         length: 255
     })
     name: string;
@@ -68,14 +67,13 @@ export class Staff {
     })
     joined: Date;
 
-    @Column({ nullable: true })
+    @Column()
     role: StaffRoleEnum;
 
     @Column({
         name: 'active',
         type: 'varchar',
-        nullable: true,
-        length: 255
+        default: () => 'true',
     })
     active: string;
 
@@ -102,9 +100,64 @@ export class Staff {
     })
     superuser: number;
 
+    @Column({
+        name: 'featured',
+        type: 'varchar',
+        default: () => 'false',
+
+    })
+    featured: string;
+
+    @Column({
+        name: 'logo',
+        type: 'varchar',
+        nullable: true
+    })
+    logo: string;
+
+    @Column({
+        name: 'cutout',
+        type: 'varchar',
+        nullable: true
+    })
+    cutout: string;
+
     toResponseObject(): StaffRO {
-        const { id, username, password, name, role, photo, joined, active, stream, description, superuser, discord_id } = this;
-        const responseObject: StaffRO = { id, username, password, name, role, photo, joined, active, stream, description, superuser, discord_id };
+        const {
+            id,
+            username,
+            password,
+            name,
+            role,
+            photo,
+            joined,
+            active,
+            stream,
+            description,
+            superuser,
+            discord_id,
+            featured,
+            logo,
+            cutout
+        } = this;
+
+        const responseObject: StaffRO = {
+            id,
+            username,
+            password,
+            name,
+            role,
+            photo,
+            joined,
+            active,
+            stream,
+            description,
+            superuser,
+            discord_id,
+            featured,
+            logo,
+            cutout
+        };
 
         return responseObject;
     }

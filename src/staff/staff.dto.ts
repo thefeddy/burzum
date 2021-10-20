@@ -11,6 +11,9 @@ export class StaffDTO {
     readonly active: boolean;
     readonly description: string;
     readonly superuser: number;
+    readonly featured: string;
+    readonly logo: string;
+    readonly cutout: string;
 }
 
 export class StaffUpdateDTO {
@@ -21,6 +24,9 @@ export class StaffUpdateDTO {
     readonly role: StaffRoleEnum;
     readonly active: boolean;
     readonly description: string;
+    readonly featured: string;
+    readonly logo: string;
+    readonly cutout: string;
 }
 
 export class StaffCreateDTO {
@@ -29,4 +35,7 @@ export class StaffCreateDTO {
     readonly role: StaffRoleEnum;
     readonly active: string;
     readonly description: string;
+    readonly featured: string;
+    readonly logo: string;
+    readonly cutout: string;
 }

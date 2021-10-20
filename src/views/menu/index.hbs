@@ -1,0 +1,59 @@
+{{#extend "body_id"}}
+id="menu"
+{{/extend}}
+{{#extend "title"}}
+Bar |
+{{/extend}}
+{{#extend "body"}}
+
+<header>
+    <h1>Menu</h1>
+    <ul id="social">
+        <li>
+            <a href="https://twitter.com/BurzumClub" target="_blank"><i class="fab fa-twitter"></i></a>
+        </li>
+        <li>
+            <a href="http://discord.gg/Z9pSRKk2vE" target="_blank"><i class="fab fa-discord"></i></a>
+        </li>
+    </ul>
+    <div id="bartenders">
+        {{#each bartenders}}
+        <img src="{{ cutout }}" alt="{{ name }}">
+        {{/each}}
+    </div>
+</header>
+<section id="food-drinks">
+    <div class="container">
+        <div class="row">
+            <div class="menu col-12 col-md-5">
+                <h2>Drinks</h2>
+                <div class="items">
+                    {{#each drinks}}
+                    <div class="item">
+                        <h3>{{ name }} <span>{{ price }}<em>gil</em></span></h3>
+                        <div class="description">{{{ description }}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="menu col-12 col-md-5">
+                <h2>Food</h2>
+                <div class="items">
+                    {{#each food}}
+                    <div class="item">
+                        <h3>{{ name }} <span>{{ price }}<em>gil</em></span></h3>
+                        <div class="description">{{{ description }}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{/extend}}
+
+{{#extend "js"}}
+<script src="/js/burzum/menu.js"></script>
+{{/extend}}
